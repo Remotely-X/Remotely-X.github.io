@@ -3,172 +3,956 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Franklyn Vasquez | IT Portfolio</title>
+  <meta
+    name="description"
+    content="Portfolio for Franklyn Jose Vasquez Marin, Systems Engineer in Longueuil, Quebec, specializing in IT infrastructure, cloud administration, virtualization, cybersecurity, DevOps tools, and enterprise support."
+  />
+  <title>Franklyn Jose Vasquez Marin | Systems Engineer Portfolio</title>
   <style>
+    :root {
+      --bg: #f5f7fb;
+      --panel: #ffffff;
+      --panel-soft: #eef8f6;
+      --ink: #132238;
+      --muted: #526173;
+      --line: #d8e0ea;
+      --navy: #16324f;
+      --teal: #0f766e;
+      --teal-dark: #115e59;
+      --gold: #a16207;
+      --shadow: 0 20px 45px rgba(17, 34, 56, 0.1);
+      --radius: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0f172a;
-      color: #e5e7eb;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    .container {
-      max-width: 1000px;
-      margin: auto;
-      padding: 40px 20px;
+    img {
+      display: block;
+      max-width: 100%;
     }
 
-    header {
-      text-align: center;
-      padding: 60px 20px;
+    a {
+      color: var(--teal-dark);
+      text-decoration-thickness: 0.08em;
+      text-underline-offset: 0.18em;
+    }
+
+    a:hover {
+      color: var(--gold);
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: 12px;
+      z-index: 10;
+      padding: 10px 14px;
+      background: var(--ink);
+      color: #fff;
+      border-radius: var(--radius);
+    }
+
+    .skip-link:focus {
+      left: 12px;
+    }
+
+    .wrap {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .wrap,
+    .nav,
+    .hero-grid,
+    .section-head,
+    .about-panel,
+    .contact-grid,
+    .timeline-item,
+    .card {
+      min-width: 0;
+    }
+
+    p,
+    li,
+    h1,
+    h2,
+    h3,
+    a {
+      overflow-wrap: break-word;
+    }
+
+    .site-header {
+      background: rgba(255, 255, 255, 0.92);
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      backdrop-filter: blur(14px);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      min-height: 72px;
+    }
+
+    .brand {
+      color: var(--ink);
+      font-weight: 800;
+      text-decoration: none;
+      letter-spacing: 0;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      font-size: 0.94rem;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-weight: 650;
+      text-decoration: none;
+    }
+
+    .nav-links a:hover {
+      color: var(--teal-dark);
+    }
+
+    .hero {
+      padding: 72px 0 56px;
+      background:
+        linear-gradient(115deg, rgba(238, 248, 246, 0.95), rgba(255, 255, 255, 0.72)),
+        var(--bg);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.02fr) minmax(320px, 0.98fr);
+      gap: 44px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--teal-dark);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      line-height: 1.15;
+      color: var(--ink);
     }
 
     h1 {
-      font-size: 42px;
-      margin-bottom: 10px;
-      color: #ffffff;
+      max-width: 760px;
+      font-size: clamp(2.45rem, 6vw, 4.75rem);
+      letter-spacing: 0;
     }
 
     h2 {
-      color: #38bdf8;
-      margin-top: 40px;
+      font-size: clamp(1.75rem, 3vw, 2.45rem);
     }
 
-    .subtitle {
-      font-size: 20px;
-      color: #cbd5e1;
+    h3 {
+      font-size: 1.08rem;
     }
 
-    .buttons a {
-      display: inline-block;
-      margin: 10px;
-      padding: 12px 20px;
-      background: #38bdf8;
-      color: #0f172a;
+    .lead {
+      max-width: 710px;
+      margin: 22px 0 0;
+      color: #334155;
+      font-size: 1.13rem;
+    }
+
+    .contact-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 24px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .contact-strip li {
+      padding: 8px 11px;
+      border: 1px solid rgba(15, 118, 110, 0.2);
+      background: rgba(255, 255, 255, 0.72);
+      border-radius: var(--radius);
+      color: #314155;
+      font-size: 0.95rem;
+      font-weight: 650;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 12px 18px;
+      border: 1px solid transparent;
+      border-radius: var(--radius);
+      font-weight: 750;
       text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
+      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
     }
 
-    section {
-      background: #111827;
-      padding: 25px;
-      margin: 25px 0;
-      border-radius: 12px;
-      border: 1px solid #1f2937;
+    .button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 24px rgba(17, 34, 56, 0.14);
     }
 
-    ul {
-      padding-left: 20px;
-    }
-
-    .project {
-      margin-bottom: 20px;
-    }
-
-    .project h3 {
-      margin-bottom: 5px;
+    .button-primary {
+      background: var(--teal);
       color: #ffffff;
     }
 
-    footer {
+    .button-primary:hover {
+      background: var(--teal-dark);
+      color: #ffffff;
+    }
+
+    .button-secondary {
+      background: #ffffff;
+      color: var(--navy);
+      border-color: var(--line);
+    }
+
+    .button-secondary:hover {
+      color: var(--teal-dark);
+    }
+
+    .hero-media {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255, 255, 255, 0.85);
+      background: #dbe8ee;
+    }
+
+    .hero-media img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+    }
+
+    .section {
+      padding: 64px 0;
+    }
+
+    .section-muted {
+      background: #ffffff;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
+      gap: 32px;
+      align-items: start;
+      margin-bottom: 28px;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    .highlight-grid,
+    .skills-grid,
+    .project-grid,
+    .credential-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .highlight-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      margin-top: 34px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: 0 12px 26px rgba(17, 34, 56, 0.06);
+    }
+
+    .card strong {
+      display: block;
+      color: var(--teal-dark);
+      font-size: 1.55rem;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .about-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 0.45fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .summary {
+      margin: 0;
+      color: #334155;
+      font-size: 1.08rem;
+    }
+
+    .quick-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .quick-list li,
+    .skill-list li,
+    .timeline ul li,
+    .credential-list li {
+      color: #42536a;
+    }
+
+    .quick-list li {
+      padding-left: 18px;
+      border-left: 3px solid var(--teal);
+    }
+
+    .skills-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .skill-list {
+      margin: 14px 0 0;
+      padding-left: 20px;
+    }
+
+    .skill-list li + li {
+      margin-top: 7px;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 18px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: minmax(170px, 0.35fr) minmax(0, 1fr);
+      gap: 22px;
+      padding: 22px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+
+    .timeline-date {
+      color: var(--teal-dark);
+      font-weight: 800;
+    }
+
+    .timeline p {
+      margin: 8px 0 0;
+      color: var(--muted);
+    }
+
+    .timeline ul {
+      margin: 14px 0 0;
+      padding-left: 20px;
+    }
+
+    .timeline li + li {
+      margin-top: 8px;
+    }
+
+    .project-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+
+    .project-card p {
+      margin: 12px 0 0;
+      color: var(--muted);
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 16px 0 0;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 5px 9px;
+      border-radius: 999px;
+      background: var(--panel-soft);
+      color: var(--teal-dark);
+      font-size: 0.82rem;
+      font-weight: 750;
+    }
+
+    .project-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: auto;
+      padding-top: 18px;
+    }
+
+    .text-link {
+      font-weight: 750;
+    }
+
+    .credential-grid {
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    }
+
+    .credential-list {
+      margin: 14px 0 0;
+      padding-left: 20px;
+    }
+
+    .credential-list li + li {
+      margin-top: 8px;
+    }
+
+    .contact-band {
+      background: var(--navy);
+      color: #eef6f8;
+      padding: 54px 0;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .contact-band h2,
+    .contact-band p {
+      color: #ffffff;
+    }
+
+    .contact-band p {
+      margin: 12px 0 0;
+      max-width: 720px;
+    }
+
+    .contact-band .button-secondary {
+      border-color: rgba(255, 255, 255, 0.24);
+    }
+
+    .footer {
+      padding: 26px 0;
+      color: var(--muted);
+      font-size: 0.94rem;
       text-align: center;
-      padding: 30px;
-      color: #94a3b8;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .section-head,
+      .about-panel,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .highlight-grid,
+      .skills-grid,
+      .project-grid,
+      .credential-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 16px 0;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .wrap {
+        width: calc(100vw - 24px);
+        max-width: 366px;
+      }
+
+      h1 {
+        font-size: 2.16rem;
+      }
+
+      .lead {
+        max-width: 100%;
+        font-size: 1rem;
+      }
+
+      .hero {
+        padding: 46px 0 42px;
+      }
+
+      .section {
+        padding: 46px 0;
+      }
+
+      .highlight-grid,
+      .skills-grid,
+      .project-grid,
+      .credential-grid,
+      .timeline-item {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        display: grid;
+        width: 100%;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px 12px;
+        font-size: 0.9rem;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .actions,
+      .project-actions {
+        width: 100%;
+      }
+
+      .contact-strip li {
+        width: 100%;
+      }
     }
   </style>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Franklyn Jose Vasquez Marin",
+      "jobTitle": "Systems Engineer",
+      "email": "mailto:vasquezfu@gmail.com",
+      "telephone": "+1-438-402-2044",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Longueuil",
+        "addressRegion": "Quebec",
+        "addressCountry": "CA"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/franklyn-jose-vasquez-marin-1b4662208",
+        "https://github.com/Remotely-X",
+        "https://remotely-x.com/"
+      ]
+    }
+  </script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to main content</a>
 
-  <header>
-    <h1>Franklyn Vasquez</h1>
-    <p class="subtitle">Systems Engineer | IT Support | Cloud & Security Enthusiast</p>
-
-    <div class="buttons">
-      <a href="mailto:vasquezfu@gmail.com">Contact Me</a>
-      <a href="https://github.com/Remotely-X" target="_blank">GitHub</a>
-      <a href="https://remotely-x.com" target="_blank">Project Website</a>
+  <header class="site-header">
+    <div class="wrap nav" aria-label="Primary navigation">
+      <a class="brand" href="#top">Franklyn Vasquez</a>
+      <nav class="nav-links" aria-label="Portfolio sections">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </div>
   </header>
 
-  <main class="container">
-
-    <section>
-      <h2>About Me</h2>
-      <p>
-        I am an IT professional with experience in Windows Server, Active Directory,
-        virtualization, system administration, troubleshooting, and security-focused IT support.
-        I am currently expanding my skills in cloud computing, web technologies, and software development.
-      </p>
-    </section>
-
-    <section>
-      <h2>Technical Skills</h2>
-      <ul>
-        <li>Windows Server 2016 / 2022</li>
-        <li>Active Directory, users, groups, permissions, and GPO</li>
-        <li>VMware virtualization and server administration</li>
-        <li>Microsoft 365 and Exchange support</li>
-        <li>Patch management, hardening, and vulnerability remediation</li>
-        <li>AWS, GitHub, Git, HTML, CSS, and basic web deployment</li>
-        <li>Flutter / Dart mobile application development</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Professional Experience</h2>
-      <h3>Systems Engineer | RT TECH Inc.</h3>
-      <p><strong>Feb 2019 – Oct 2024</strong></p>
-      <ul>
-        <li>Managed and supported Windows-based infrastructure and business systems.</li>
-        <li>Provided L2/L3 troubleshooting for operating system, connectivity, performance, and authentication issues.</li>
-        <li>Worked with Active Directory, Microsoft 365, Exchange, permissions, and security configurations.</li>
-        <li>Supported patching, system updates, vulnerability remediation, and compliance-driven hardening.</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Projects</h2>
-
-      <div class="project">
-        <h3>Remotely-X Remote Management Platform</h3>
-        <p>
-          Personal project focused on remote IT management concepts, including remote access,
-          remote shell, remote desktop, file explorer, user management, and IT service delivery.
-        </p>
-        <p><a href="https://remotely-x.com" target="_blank">Visit Project Website</a></p>
-      </div>
-
-      <div class="project">
-        <h3>FlashCards: Learn English</h3>
-        <p>
-          Published Android application for language learning, including vocabulary, pronunciation,
-          listening practice, and structured study screens.
-        </p>
-        <p><a href="https://play.google.com/store/apps/details?id=com.flashcards.puffin" target="_blank">View on Google Play</a></p>
-      </div>
-
-      <div class="project">
-        <h3>SpeakDaily</h3>
-        <p>
-          Mobile app in progress focused on daily language practice, calendar-based lessons,
-          speaking activities, progress tracking, and gamified learning.
-        </p>
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">Systems Engineer</p>
+          <h1>Franklyn Jose Vasquez Marin</h1>
+          <p class="lead">
+            IT infrastructure and enterprise support professional with 5+ years of systems engineering experience across
+            Windows Server, VMware, Active Directory, cloud administration, cybersecurity tools, DevOps workflows, and
+            technical service delivery.
+          </p>
+          <ul class="contact-strip" aria-label="Contact details">
+            <li>Longueuil, Quebec, Canada</li>
+            <li><a href="mailto:vasquezfu@gmail.com">vasquezfu@gmail.com</a></li>
+            <li><a href="tel:+14384022044">(438) 402-2044</a></li>
+          </ul>
+          <div class="actions" aria-label="Main actions">
+            <a class="button button-primary" href="mailto:vasquezfu@gmail.com">Contact Me</a>
+            <a class="button button-secondary" href="Franklyn_Vasquez_CV.docx" download>Download CV</a>
+            <a class="button button-secondary" href="https://www.linkedin.com/in/franklyn-jose-vasquez-marin-1b4662208" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a class="button button-secondary" href="https://github.com/Remotely-X" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
+        </div>
+        <div class="hero-media" aria-label="IT operations visual">
+          <img src="assets/it-operations-hero.png" alt="Modern IT operations workspace with cloud, network, and cybersecurity visuals" />
+        </div>
       </div>
     </section>
 
-    <section>
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:vasquezfu@gmail.com">vasquezfu@gmail.com</a></p>
-      <p>GitHub: <a href="https://github.com/Remotely-X" target="_blank">github.com/Remotely-X</a></p>
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Portfolio Focus</h2>
+          <p>
+            Built for IT, systems engineering, cloud administration, cybersecurity, and technical support roles where
+            dependable infrastructure operations and clear communication matter.
+          </p>
+        </div>
+        <div class="highlight-grid" aria-label="Professional highlights">
+          <article class="card">
+            <strong>5+</strong>
+            <p>years of systems engineering and enterprise support experience.</p>
+          </article>
+          <article class="card">
+            <strong>2016/2022</strong>
+            <p>Windows Server administration, patching, hardening, and support.</p>
+          </article>
+          <article class="card">
+            <strong>Cloud</strong>
+            <p>AWS, Microsoft Azure, Google Cloud Platform, and networking fundamentals.</p>
+          </article>
+          <article class="card">
+            <strong>Security</strong>
+            <p>Vulnerability remediation, GPOs, monitoring, logging, and cybersecurity tools.</p>
+          </article>
+        </div>
+      </div>
     </section>
 
+    <section class="section section-muted" id="about">
+      <div class="wrap about-panel">
+        <div>
+          <p class="eyebrow">About</p>
+          <h2>Practical systems engineer with support, cloud, and security depth.</h2>
+          <p class="summary">
+            I support, troubleshoot, document, and improve business technology environments. My background includes
+            Windows infrastructure, VMware virtualization, Active Directory, Group Policy, Microsoft 365, Linux,
+            cloud platforms, SQL reporting, and application development. I also build personal projects that demonstrate
+            product delivery, remote IT management concepts, mobile development, and user-focused design.
+          </p>
+        </div>
+        <ul class="quick-list" aria-label="Core strengths">
+          <li>Infrastructure administration and L2/L3 troubleshooting</li>
+          <li>Security hardening, vulnerability remediation, and patch management</li>
+          <li>Technical documentation, staff guidance, and stakeholder support</li>
+          <li>Hands-on project work across web, mobile, cloud, and DevOps tools</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Technical Skills</h2>
+          <p>
+            Skills listed here come from the CV and are grouped for recruiter-friendly scanning across infrastructure,
+            cloud, DevOps, data, programming, and cybersecurity.
+          </p>
+        </div>
+        <div class="skills-grid">
+          <article class="card">
+            <h3>Cloud Platforms</h3>
+            <ul class="skill-list">
+              <li>AWS: EC2, IAM, VPC, Security Groups</li>
+              <li>Microsoft Azure: virtual machines and networking</li>
+              <li>Google Cloud Platform</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Systems & Infrastructure</h3>
+            <ul class="skill-list">
+              <li>Windows Server, Windows desktop support</li>
+              <li>Linux: Ubuntu, CentOS, Kali Linux</li>
+              <li>VMware, virtualization technologies, system monitoring</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Directory, Network & Support</h3>
+            <ul class="skill-list">
+              <li>Active Directory, GPO, permissions, access control</li>
+              <li>TCP/IP, DNS, DHCP, subnetting, SSH, NAT</li>
+              <li>Microsoft 365, Office 365, Exchange, Outlook support</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>DevOps & Tools</h3>
+            <ul class="skill-list">
+              <li>Docker, Kubernetes, Jenkins</li>
+              <li>Git, GitHub, CI/CD pipelines</li>
+              <li>Log analysis and troubleshooting workflows</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Programming, Data & Reporting</h3>
+            <ul class="skill-list">
+              <li>Python basics, PHP, VBA, Bash scripting</li>
+              <li>Microsoft Visual Basic, Microsoft Visual C++, Flutter</li>
+              <li>SQL, PostgreSQL, Power BI coursework, dashboards</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Cybersecurity</h3>
+            <ul class="skill-list">
+              <li>Wireshark, Nmap, Wazuh, Suricata</li>
+              <li>Nessus, OpenVAS, Splunk, Autopsy, Burp Suite</li>
+              <li>Server hardening, vulnerability remediation, security best practices</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-muted" id="experience">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Professional Experience</h2>
+          <p>
+            Infrastructure support, operations, documentation, and technical guidance across enterprise and earlier
+            technical roles.
+          </p>
+        </div>
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="timeline-date">Feb 2019 - Oct 2024</div>
+            <div>
+              <h3>Systems Engineer | RT TECH Inc.</h3>
+              <p>Administered and supported Windows-based infrastructure, virtualization, security configuration, and enterprise support operations.</p>
+              <ul>
+                <li>Supported Windows Server 2016/2022 environments with attention to stability, availability, and security.</li>
+                <li>Managed VMware virtual machines, including provisioning, configuration, resource allocation, and performance monitoring.</li>
+                <li>Implemented and supported GPOs for security settings, system configuration, and vulnerability remediation.</li>
+                <li>Handled patch management, system updates, server hardening, and compliance-focused remediation activities.</li>
+                <li>Resolved L2/L3 incidents involving operating systems, performance, connectivity, permissions, and server issues.</li>
+                <li>Supported Microsoft 365, Office 365, Exchange, Outlook connectivity, Active Directory, access control, and user administration.</li>
+                <li>Created technical documentation and provided mentorship to junior team members during support operations.</li>
+              </ul>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-date">May 2014 - Feb 2019</div>
+            <div>
+              <h3>Process Engineer | Petroleum Refinery</h3>
+              <p>Coordinated operational information, reporting, and documentation across process and plant activities.</p>
+              <ul>
+                <li>Prepared technical and routine reports for monitoring, compliance, and decision-making.</li>
+                <li>Maintained process records and collaborated with teams to improve workflow efficiency and control standards.</li>
+              </ul>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-date">Mar 2013 - May 2014</div>
+            <div>
+              <h3>ERP Analyst</h3>
+              <p>Supported ERP operations, user requests, data maintenance, testing, issue resolution, documentation, and system update coordination.</p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-date">Jan 2000 - Mar 2013</div>
+            <div>
+              <h3>Computer Trainer</h3>
+              <p>Prepared training materials, tracked learner records, and provided user support for computer systems and software in educational environments.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Personal Projects</h2>
+          <p>
+            Project work from the CV and current website, showing practical software development, product delivery,
+            remote support concepts, and mobile app development.
+          </p>
+        </div>
+        <div class="project-grid">
+          <article class="card project-card">
+            <h3>Remotely-X Remote Management Platform</h3>
+            <p>
+              Remote IT management and support-oriented platform demonstrating remote access, remote shell, remote
+              desktop, remote file explorer, user management, and IT service delivery concepts.
+            </p>
+            <div class="tag-row" aria-label="Project areas">
+              <span class="tag">Remote IT support</span>
+              <span class="tag">System integration</span>
+              <span class="tag">In development</span>
+            </div>
+            <div class="project-actions">
+              <a class="text-link" href="https://remotely-x.com/" target="_blank" rel="noopener noreferrer">Visit project website</a>
+            </div>
+          </article>
+          <article class="card project-card">
+            <h3>FlashCards: Learn English</h3>
+            <p>
+              Published Android language-learning application on Google Play with flashcards, pronunciation and
+              listening practice, speaking practice concepts, user authentication, and structured study screens.
+            </p>
+            <div class="tag-row" aria-label="Project areas">
+              <span class="tag">Android</span>
+              <span class="tag">Flutter</span>
+              <span class="tag">Published app</span>
+            </div>
+            <div class="project-actions">
+              <a class="text-link" href="https://play.google.com/store/apps/details?id=com.flashcards.puffin" target="_blank" rel="noopener noreferrer">View on Google Play</a>
+            </div>
+          </article>
+          <article class="card project-card">
+            <h3>Daily Agenda</h3>
+            <p>
+              Android application in development focused on daily planning, agenda organization, reminders, and task
+              management.
+            </p>
+            <div class="tag-row" aria-label="Project areas">
+              <span class="tag">Android</span>
+              <span class="tag">Planning app</span>
+              <span class="tag">In progress</span>
+            </div>
+          </article>
+          <article class="card project-card">
+            <h3>Key Vault</h3>
+            <p>
+              Android application in development focused on storing and organizing sensitive user information.
+            </p>
+            <div class="tag-row" aria-label="Project areas">
+              <span class="tag">Android</span>
+              <span class="tag">Secure storage</span>
+              <span class="tag">In progress</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-muted" id="education">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Education & Certifications</h2>
+          <p>
+            Formal education and certifications from the CV, including current cloud administration studies and
+            cybersecurity credentials.
+          </p>
+        </div>
+        <div class="credential-grid">
+          <article class="card">
+            <h3>Education</h3>
+            <ul class="credential-list">
+              <li>AEC - IT Cloud Administration, in progress - Champlain College, Saint-Lambert, QC, Canada</li>
+              <li>AEC - Cybersecurity: Prevention and Intervention - Champlain College, Saint-Lambert, QC, Canada</li>
+              <li>System Engineer bachelor's degree - Santiago Mari&ntilde;o Polytechnic University, Venezuela</li>
+              <li>Teacher Training bachelor's degree - National Open University, Venezuela</li>
+              <li>Computer Technician (DEC) - Isaac Newton University Institute, Venezuela</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Certifications</h3>
+            <ul class="credential-list">
+              <li>CompTIA CySA+ - Verified Credential ID: 7Q8BVEQ50FQQ1882</li>
+              <li>CompTIA A+ - Verified Credential ID: C6LQT9FQ4BVEQ64J</li>
+              <li>CompTIA Tech+ - Verified Credential ID: EK360HJ5ZNBEC8LJ</li>
+              <li>Cisco Certified Network Associate (CCNA) - Verified Credential ID: f59e3cac390744c7aa6ed59210520a5c</li>
+              <li>Microsoft Certified: Azure Security Engineer Associate (AZ-500) - Credential ID: 92B71F0AB914408B</li>
+              <li>Microsoft Certified: Azure Fundamentals (AZ-900) - Credential ID: 561978C307D42ED3</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap credential-grid">
+        <article class="card">
+          <h2>Languages</h2>
+          <ul class="credential-list">
+            <li>Spanish: Native</li>
+            <li>English: Fluent</li>
+            <li>French: Basic</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h2>Working Style</h2>
+          <p>
+            Recruiter-friendly strengths include clear troubleshooting, documentation, cross-team collaboration,
+            structured reporting, staff training, and a steady focus on reliable service delivery.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="contact-band" id="contact">
+      <div class="wrap contact-grid">
+        <div>
+          <h2>Let&apos;s Connect</h2>
+          <p>
+            Open to IT support, systems engineering, cloud administration, cybersecurity, and infrastructure-focused
+            opportunities.
+          </p>
+        </div>
+        <div class="actions" aria-label="Contact actions">
+          <a class="button button-primary" href="mailto:vasquezfu@gmail.com">Email Franklyn</a>
+          <a class="button button-secondary" href="Franklyn_Vasquez_CV.docx" download>Download CV</a>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <footer>
-    <p>© 2026 Franklyn Vasquez. All rights reserved.</p>
+  <footer class="footer">
+    <div class="wrap">
+      <p>&copy; 2026 Franklyn Jose Vasquez Marin. All rights reserved.</p>
+    </div>
   </footer>
-
 </body>
 </html>
