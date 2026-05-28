@@ -10,7 +10,7 @@
   <title>Franklyn Jose Vasquez Marin | Systems Engineer Portfolio</title>
   <style>
     :root {
-      --bg: #f7f7f4;
+      --bg: #f2f3f3;
       --ink: #070707;
       --muted: #666666;
       --soft: #a7a7a0;
@@ -72,15 +72,16 @@
     }
 
     .wrap {
-      width: min(1240px, calc(100% - 72px));
+      width: calc(100% - 96px);
+      max-width: none;
       margin: 0 auto;
     }
 
     .topbar {
-      position: fixed;
+      position: absolute;
       inset: 0 0 auto;
       z-index: 10;
-      background: rgba(247, 247, 244, 0.86);
+      background: rgba(242, 243, 243, 0.86);
       backdrop-filter: blur(18px);
       border-bottom: 1px solid transparent;
     }
@@ -90,7 +91,7 @@
       grid-template-columns: auto 1fr auto;
       align-items: center;
       gap: 36px;
-      min-height: 92px;
+      min-height: 96px;
     }
 
     .mark {
@@ -136,16 +137,16 @@
     .hero {
       position: relative;
       min-height: 100vh;
-      padding: 136px 0 58px;
+      padding: 112px 0 42px;
       isolation: isolate;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 92px minmax(0, 0.86fr) minmax(420px, 1fr);
-      align-items: end;
-      gap: 36px;
-      min-height: calc(100vh - 194px);
+      grid-template-columns: 88px minmax(560px, 760px);
+      align-items: center;
+      gap: 44px;
+      min-height: calc(100vh - 154px);
     }
 
     .side-rail {
@@ -164,7 +165,7 @@
 
     .side-rail .line {
       width: 1px;
-      min-height: 180px;
+      min-height: 250px;
       background: var(--soft);
     }
 
@@ -175,15 +176,17 @@
     }
 
     .hero-copy {
-      padding-bottom: 24px;
+      max-width: 760px;
+      padding-top: 28px;
+      padding-bottom: 0;
       z-index: 2;
     }
 
     .metrics {
       display: flex;
-      flex-wrap: wrap;
-      gap: 46px;
-      margin-bottom: 116px;
+      flex-wrap: nowrap;
+      gap: clamp(34px, 4.8vw, 76px);
+      margin-bottom: clamp(74px, 9vh, 120px);
     }
 
     .metric strong {
@@ -216,7 +219,7 @@
     }
 
     h1 {
-      font-size: 11rem;
+      font-size: clamp(10rem, 13vw, 16rem);
       font-weight: 300;
     }
 
@@ -227,7 +230,7 @@
     }
 
     .hero-summary {
-      max-width: 660px;
+      max-width: 620px;
       margin: 28px 0 0;
       color: #2f2f2d;
       font-size: 1.04rem;
@@ -272,20 +275,24 @@
     }
 
     .hero-portrait {
-      align-self: end;
-      justify-self: end;
-      width: min(50vw, 720px);
-      min-width: 420px;
-      z-index: 1;
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: min(56vw, 980px);
+      min-width: 720px;
+      height: 100vh;
+      z-index: 0;
+      margin: 0;
+      pointer-events: none;
     }
 
     .hero-portrait img {
       width: 100%;
-      height: min(74vh, 790px);
-      object-fit: cover;
-      object-position: center top;
-      filter: grayscale(1) contrast(1.04);
-      border-radius: 0 0 var(--radius) var(--radius);
+      height: 100%;
+      object-fit: contain;
+      object-position: right bottom;
+      border-radius: 0;
     }
 
     .scroll-hint {
@@ -553,14 +560,20 @@
       }
 
       .hero-portrait {
+        position: relative;
+        right: auto;
+        bottom: auto;
         justify-self: stretch;
         width: 100%;
+        height: auto;
         min-width: 0;
+        z-index: 1;
+        margin-top: 36px;
       }
 
       .hero-portrait img {
         height: 620px;
-        object-position: center top;
+        object-position: center bottom;
       }
 
       .scroll-hint {
@@ -735,10 +748,6 @@
               <strong>4</strong>
               <span>Personal projects</span>
             </div>
-            <div class="metric">
-              <strong>6</strong>
-              <span>Technical certifications</span>
-            </div>
           </div>
 
           <p class="eyebrow">Longueuil, Quebec, Canada</p>
@@ -758,7 +767,7 @@
         </div>
 
         <figure class="hero-portrait">
-          <img src="assets/franklyn-editorial-portrait.png" alt="Black and white portrait of Franklyn Jose Vasquez Marin" />
+          <img src="assets/franklyn-hero-integrated.png" alt="Black and white portrait of Franklyn Jose Vasquez Marin" />
         </figure>
       </div>
       <a class="scroll-hint" href="#about">Scroll down ↓</a>
