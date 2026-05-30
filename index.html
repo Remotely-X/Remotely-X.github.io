@@ -788,7 +788,7 @@
           <option value="fr">FR</option>
           <option value="es">ES</option>
         </select>
-        <a class="top-action" href="Franklyn_Vasquez_CV.pdf" download><span data-i18n="downloadCv">Download CV</span> &#8599;</a>
+        <a class="top-action" href="Franklyn_Vasquez_CV_EN.pdf" download data-cv-download><span data-i18n="downloadCv">Download CV</span> &#8599;</a>
       </div>
     </div>
   </header>
@@ -825,7 +825,7 @@
           </p>
           <div class="hero-actions" aria-label="Main actions" data-i18n-aria="mainActions">
             <a class="button button-dark" href="mailto:vasquezfu@gmail.com" data-i18n="contactMe">Contact Me</a>
-            <a class="button" href="Franklyn_Vasquez_CV.pdf" download data-i18n="downloadCv">Download CV</a>
+            <a class="button" href="Franklyn_Vasquez_CV_EN.pdf" download data-cv-download data-i18n="downloadCv">Download CV</a>
             <a class="button" href="https://www.linkedin.com/in/franklynvasquez/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             <a class="button" href="https://github.com/Remotely-X" target="_blank" rel="noopener noreferrer">GitHub</a>
           </div>
@@ -1056,7 +1056,7 @@
         </div>
         <div class="contact-links" aria-label="Contact actions" data-i18n-aria="contactActions">
           <a class="button button-dark" href="mailto:vasquezfu@gmail.com" data-i18n="emailMe">Email Me</a>
-          <a class="button" href="Franklyn_Vasquez_CV.pdf" download data-i18n="downloadCv">Download CV</a>
+          <a class="button" href="Franklyn_Vasquez_CV_EN.pdf" download data-cv-download data-i18n="downloadCv">Download CV</a>
         </div>
       </div>
     </section>
@@ -1290,6 +1290,11 @@
     const textDefaults = new Map();
     const ariaDefaults = new Map();
     const altDefaults = new Map();
+    const cvDownloads = {
+      en: "Franklyn_Vasquez_CV_EN.pdf",
+      fr: "Franklyn_Vasquez_CV_FR.pdf",
+      es: "Franklyn_Vasquez_CV_ES.pdf"
+    };
     const languageSelect = document.getElementById("language-select");
     const descriptionMeta = document.querySelector('meta[name="description"]');
 
@@ -1312,6 +1317,12 @@
       document.documentElement.lang = language;
       document.title = metadata.title;
       descriptionMeta.setAttribute("content", metadata.description);
+      const cvFilename = cvDownloads[language] || cvDownloads.en;
+
+      document.querySelectorAll("[data-cv-download]").forEach((link) => {
+        link.setAttribute("href", cvFilename);
+        link.setAttribute("download", cvFilename);
+      });
 
       document.querySelectorAll("[data-i18n]").forEach((element) => {
         const key = element.dataset.i18n;
