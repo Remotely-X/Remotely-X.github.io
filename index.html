@@ -71,6 +71,18 @@
       left: 12px;
     }
 
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
     .wrap {
       width: calc(100% - 96px);
       max-width: none;
@@ -128,10 +140,28 @@
     }
 
     .top-action {
-      justify-self: end;
       border-bottom: 1px solid var(--ink);
       font-weight: 600;
       white-space: nowrap;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      justify-self: end;
+      gap: 18px;
+    }
+
+    .language-select {
+      min-height: 36px;
+      padding: 6px 24px 6px 8px;
+      border: 1px solid var(--ink);
+      border-radius: 0;
+      background: transparent;
+      color: var(--ink);
+      cursor: pointer;
+      font: inherit;
+      font-size: 0.88rem;
     }
 
     .hero {
@@ -221,6 +251,14 @@
     h1 {
       font-size: clamp(10rem, 13vw, 16rem);
       font-weight: 300;
+    }
+
+    html[lang="fr"] h1 {
+      font-size: clamp(8.5rem, 10vw, 12rem);
+    }
+
+    html[lang="fr"] .hero-subtitle {
+      margin-top: 24px;
     }
 
     .hero-subtitle {
@@ -593,7 +631,7 @@
       }
 
       .mark,
-      .top-action {
+      .nav-actions {
         justify-self: start;
       }
 
@@ -712,19 +750,27 @@
   </script>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to main content</a>
+  <a class="skip-link" href="#main" data-i18n="skipLink">Skip to main content</a>
 
   <header class="topbar">
-    <div class="wrap nav" aria-label="Primary navigation">
-      <a class="mark" href="#top" aria-label="Franklyn Vasquez home"><span>FV</span></a>
-      <nav class="nav-links" aria-label="Portfolio sections">
-        <a href="#about">About Me</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#skills">Skills</a>
-        <a href="#experience">Experience</a>
-        <a href="#contact">Contact</a>
+    <div class="wrap nav" aria-label="Primary navigation" data-i18n-aria="primaryNav">
+      <a class="mark" href="#top" aria-label="Franklyn Vasquez home" data-i18n-aria="homeLabel"><span>FV</span></a>
+      <nav class="nav-links" aria-label="Portfolio sections" data-i18n-aria="portfolioSections">
+        <a href="#about" data-i18n="navAbout">About Me</a>
+        <a href="#portfolio" data-i18n="navPortfolio">Portfolio</a>
+        <a href="#skills" data-i18n="navSkills">Skills</a>
+        <a href="#experience" data-i18n="navExperience">Experience</a>
+        <a href="#contact" data-i18n="navContact">Contact</a>
       </nav>
-      <a class="top-action" href="Franklyn_Vasquez_CV.pdf" download>Download CV ↗</a>
+      <div class="nav-actions">
+        <label class="sr-only" for="language-select" data-i18n="languageLabel">Language</label>
+        <select class="language-select" id="language-select" aria-label="Language" data-i18n-aria="languageLabel">
+          <option value="en">EN</option>
+          <option value="fr">FR</option>
+          <option value="es">ES</option>
+        </select>
+        <a class="top-action" href="Franklyn_Vasquez_CV.pdf" download><span data-i18n="downloadCv">Download CV</span> &#8599;</a>
+      </div>
     </div>
   </header>
 
@@ -732,65 +778,65 @@
     <section class="hero" id="top">
       <div class="wrap hero-grid">
         <aside class="side-rail" aria-hidden="true">
-          <span class="vertical">Systems Engineer Portfolio</span>
+          <span class="vertical" data-i18n="railPortfolio">Systems Engineer Portfolio</span>
           <span class="line"></span>
           <span></span>
           <span class="year">2026</span>
         </aside>
 
         <div class="hero-copy">
-          <div class="metrics" aria-label="Portfolio highlights">
+          <div class="metrics" aria-label="Portfolio highlights" data-i18n-aria="portfolioHighlights">
             <div class="metric">
               <strong>5+</strong>
-              <span>Years in IT infrastructure</span>
+              <span data-i18n="yearsInfrastructure">Years in IT infrastructure</span>
             </div>
             <div class="metric">
               <strong>4</strong>
-              <span>Personal projects</span>
+              <span data-i18n="personalProjects">Personal projects</span>
             </div>
           </div>
 
-          <p class="eyebrow">Longueuil, Quebec, Canada</p>
-          <h1>Hello</h1>
-          <p class="hero-subtitle">- I&apos;m Franklyn, an IT professional</p>
-          <p class="hero-summary">
+          <p class="eyebrow" data-i18n="location">Longueuil, Quebec, Canada</p>
+          <h1 data-i18n="hello">Hello</h1>
+          <p class="hero-subtitle" data-i18n="heroSubtitle">- I&apos;m Franklyn, an IT professional</p>
+          <p class="hero-summary" data-i18n="heroSummary">
             Systems Engineer with experience in IT infrastructure, cloud administration, virtualization,
             cybersecurity, DevOps tools, and enterprise support. I work across Windows Server, VMware,
             Active Directory, Linux, Microsoft 365, cloud platforms, and hands-on product projects.
           </p>
-          <div class="hero-actions" aria-label="Main actions">
-            <a class="button button-dark" href="mailto:vasquezfu@gmail.com">Contact Me</a>
-            <a class="button" href="Franklyn_Vasquez_CV.pdf" download>Download CV</a>
+          <div class="hero-actions" aria-label="Main actions" data-i18n-aria="mainActions">
+            <a class="button button-dark" href="mailto:vasquezfu@gmail.com" data-i18n="contactMe">Contact Me</a>
+            <a class="button" href="Franklyn_Vasquez_CV.pdf" download data-i18n="downloadCv">Download CV</a>
             <a class="button" href="https://www.linkedin.com/in/franklyn-jose-vasquez-marin-1b4662208" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             <a class="button" href="https://github.com/Remotely-X" target="_blank" rel="noopener noreferrer">GitHub</a>
           </div>
         </div>
 
         <figure class="hero-portrait">
-          <img src="assets/franklyn-hero-integrated.png" alt="Black and white portrait of Franklyn Jose Vasquez Marin" />
+          <img src="assets/franklyn-hero-integrated.png" alt="Black and white portrait of Franklyn Jose Vasquez Marin" data-i18n-alt="portraitAlt" />
         </figure>
       </div>
-      <a class="scroll-hint" href="#about">Scroll down ↓</a>
+      <a class="scroll-hint" href="#about"><span data-i18n="scrollDown">Scroll down</span> &#8595;</a>
     </section>
 
     <section class="section" id="about">
       <div class="wrap">
         <div class="section-head">
-          <span class="section-kicker">01 / About Me</span>
-          <h2>Reliable infrastructure support with cloud, security, and documentation depth.</h2>
+          <span class="section-kicker" data-i18n="aboutKicker">01 / About Me</span>
+          <h2 data-i18n="aboutTitle">Reliable infrastructure support with cloud, security, and documentation depth.</h2>
         </div>
         <div class="about-copy">
-          <p>
+          <p data-i18n="aboutCopy">
             I support, troubleshoot, document, and improve business technology environments. My background includes
             Windows Server, VMware virtualization, Active Directory, Group Policy, Microsoft 365, Linux, cloud
             platforms, SQL reporting, and application development. I also build personal projects that demonstrate
             product delivery, remote IT management concepts, mobile development, and user-focused design.
           </p>
-          <ul class="detail-list" aria-label="Contact details">
-            <li><span>Email</span><a href="mailto:vasquezfu@gmail.com">vasquezfu@gmail.com</a></li>
-            <li><span>Phone</span><a href="tel:+14384022044">(438) 402-2044</a></li>
-            <li><span>Location</span>Longueuil, Quebec, Canada</li>
-            <li><span>Languages</span>Spanish native, English fluent, French basic</li>
+          <ul class="detail-list" aria-label="Contact details" data-i18n-aria="contactDetails">
+            <li><span data-i18n="emailLabel">Email</span><a href="mailto:vasquezfu@gmail.com">vasquezfu@gmail.com</a></li>
+            <li><span data-i18n="phoneLabel">Phone</span><a href="tel:+14384022044">(438) 402-2044</a></li>
+            <li><span data-i18n="locationLabel">Location</span><span data-i18n="location">Longueuil, Quebec, Canada</span></li>
+            <li><span data-i18n="languagesLabel">Languages</span><span data-i18n="languagesValue">Spanish native, English fluent, French basic</span></li>
           </ul>
         </div>
       </div>
@@ -799,44 +845,44 @@
     <section class="section" id="portfolio">
       <div class="wrap">
         <div class="section-head">
-          <span class="section-kicker">02 / Portfolio</span>
-          <h2>Projects focused on IT operations, mobile apps, and useful product delivery.</h2>
+          <span class="section-kicker" data-i18n="portfolioKicker">02 / Portfolio</span>
+          <h2 data-i18n="portfolioTitle">Projects focused on IT operations, mobile apps, and useful product delivery.</h2>
         </div>
         <div class="portfolio-list">
           <article class="project-row">
             <span class="row-number">01</span>
             <h3>Remotely-X Remote Management Platform</h3>
-            <p>
+            <p data-i18n="projectRemotelyX">
               Remote IT management and support-oriented platform demonstrating remote access, remote shell,
               remote desktop, remote file explorer, user management, and IT service delivery concepts.
             </p>
-            <a class="project-link" href="https://remotely-x.com/" target="_blank" rel="noopener noreferrer">Open ↗</a>
+            <a class="project-link" href="https://remotely-x.com/" target="_blank" rel="noopener noreferrer"><span data-i18n="openLink">Open</span> &#8599;</a>
           </article>
           <article class="project-row">
             <span class="row-number">02</span>
             <h3>FlashCards: Learn English</h3>
-            <p>
+            <p data-i18n="projectFlashcards">
               Published Android language-learning application with flashcards, pronunciation and listening practice,
               speaking practice concepts, user authentication, and structured study screens.
             </p>
-            <a class="project-link" href="https://play.google.com/store/apps/details?id=com.flashcards.puffin" target="_blank" rel="noopener noreferrer">Google Play ↗</a>
+            <a class="project-link" href="https://play.google.com/store/apps/details?id=com.flashcards.puffin" target="_blank" rel="noopener noreferrer">Google Play &#8599;</a>
           </article>
           <article class="project-row">
             <span class="row-number">03</span>
             <h3>Daily Agenda</h3>
-            <p>
+            <p data-i18n="projectAgenda">
               Android application in development focused on daily planning, agenda organization, reminders, and
               task management.
             </p>
-            <span class="project-link">In progress</span>
+            <span class="project-link" data-i18n="inProgress">In progress</span>
           </article>
           <article class="project-row">
             <span class="row-number">04</span>
             <h3>Key Vault</h3>
-            <p>
+            <p data-i18n="projectKeyVault">
               Android application in development focused on storing and organizing sensitive user information.
             </p>
-            <span class="project-link">In progress</span>
+            <span class="project-link" data-i18n="inProgress">In progress</span>
           </article>
         </div>
       </div>
@@ -845,56 +891,56 @@
     <section class="section" id="skills">
       <div class="wrap">
         <div class="section-head">
-          <span class="section-kicker">03 / Skills</span>
-          <h2>Technical stack for support, infrastructure, cloud, DevOps, data, and cybersecurity roles.</h2>
+          <span class="section-kicker" data-i18n="skillsKicker">03 / Skills</span>
+          <h2 data-i18n="skillsTitle">Technical stack for support, infrastructure, cloud, DevOps, data, and cybersecurity roles.</h2>
         </div>
         <div class="skills-board">
           <article class="skill-group">
-            <h3>Cloud Platforms</h3>
+            <h3 data-i18n="skillCloud">Cloud Platforms</h3>
             <ul>
               <li>AWS: EC2, IAM, VPC, Security Groups</li>
-              <li>Microsoft Azure: virtual machines and networking</li>
+              <li data-i18n="azureSkill">Microsoft Azure: virtual machines and networking</li>
               <li>Google Cloud Platform</li>
             </ul>
           </article>
           <article class="skill-group">
-            <h3>Systems & Infrastructure</h3>
+            <h3 data-i18n="skillSystems">Systems &amp; Infrastructure</h3>
             <ul>
-              <li>Windows Server 2016/2022 and desktop support</li>
+              <li data-i18n="windowsSupport">Windows Server 2016/2022 and desktop support</li>
               <li>Linux: Ubuntu, CentOS, Kali Linux</li>
-              <li>VMware and virtualization technologies</li>
+              <li data-i18n="virtualizationSkill">VMware and virtualization technologies</li>
             </ul>
           </article>
           <article class="skill-group">
-            <h3>Directory & Network</h3>
+            <h3 data-i18n="skillDirectory">Directory &amp; Network</h3>
             <ul>
-              <li>Active Directory, GPO, permissions, access control</li>
+              <li data-i18n="directorySkill">Active Directory, GPO, permissions, access control</li>
               <li>TCP/IP, DNS, DHCP, subnetting, SSH, NAT</li>
-              <li>Microsoft 365, Office 365, Exchange, Outlook support</li>
+              <li data-i18n="microsoftSupport">Microsoft 365, Office 365, Exchange, Outlook support</li>
             </ul>
           </article>
           <article class="skill-group">
-            <h3>DevOps & Tools</h3>
+            <h3 data-i18n="skillDevOps">DevOps &amp; Tools</h3>
             <ul>
               <li>Docker, Kubernetes, Jenkins</li>
               <li>Git, GitHub, CI/CD pipelines</li>
-              <li>System monitoring, troubleshooting, and log analysis</li>
+              <li data-i18n="monitoringSkill">System monitoring, troubleshooting, and log analysis</li>
             </ul>
           </article>
           <article class="skill-group">
-            <h3>Programming & Data</h3>
+            <h3 data-i18n="skillProgramming">Programming &amp; Data</h3>
             <ul>
-              <li>Python basics, PHP, VBA, Bash scripting</li>
+              <li data-i18n="pythonSkill">Python basics, PHP, VBA, Bash scripting</li>
               <li>Microsoft Visual Basic, Visual C++, Flutter</li>
-              <li>SQL, PostgreSQL, Power BI coursework, dashboards</li>
+              <li data-i18n="sqlSkill">SQL, PostgreSQL, Power BI coursework, dashboards</li>
             </ul>
           </article>
           <article class="skill-group">
-            <h3>Cybersecurity</h3>
+            <h3 data-i18n="skillCybersecurity">Cybersecurity</h3>
             <ul>
               <li>Wireshark, Nmap, Wazuh, Suricata</li>
               <li>Nessus, OpenVAS, Splunk, Autopsy, Burp Suite</li>
-              <li>Server hardening and vulnerability remediation</li>
+              <li data-i18n="hardeningSkill">Server hardening and vulnerability remediation</li>
             </ul>
           </article>
         </div>
@@ -904,43 +950,43 @@
     <section class="section" id="experience">
       <div class="wrap">
         <div class="section-head">
-          <span class="section-kicker">04 / Experience</span>
-          <h2>Enterprise support, infrastructure operations, technical reporting, and training.</h2>
+          <span class="section-kicker" data-i18n="experienceKicker">04 / Experience</span>
+          <h2 data-i18n="experienceTitle">Enterprise support, infrastructure operations, technical reporting, and training.</h2>
         </div>
         <div class="timeline">
           <article class="timeline-item">
-            <span class="date">Feb 2019 - Oct 2024</span>
+            <span class="date" data-i18n="dateRtTech">Feb 2019 - Oct 2024</span>
             <div>
-              <h3>Systems Engineer | RT TECH Inc.</h3>
-              <p>Administered and supported Windows-based infrastructure, virtualization, security configuration, and enterprise support operations.</p>
+              <h3 data-i18n="roleRtTech">Systems Engineer | RT TECH Inc.</h3>
+              <p data-i18n="rtTechSummary">Administered and supported Windows-based infrastructure, virtualization, security configuration, and enterprise support operations.</p>
               <ul>
-                <li>Supported Windows Server 2016/2022 environments for stability, availability, and security.</li>
-                <li>Managed VMware virtual machines, provisioning, configuration, resource allocation, and performance monitoring.</li>
-                <li>Implemented GPOs, patch management, server hardening, and vulnerability remediation.</li>
-                <li>Resolved L2/L3 incidents involving operating systems, performance, connectivity, permissions, and server issues.</li>
-                <li>Supported Microsoft 365, Office 365, Exchange, Outlook, Active Directory, access control, and user administration.</li>
+                <li data-i18n="rtTechBullet1">Supported Windows Server 2016/2022 environments for stability, availability, and security.</li>
+                <li data-i18n="rtTechBullet2">Managed VMware virtual machines, provisioning, configuration, resource allocation, and performance monitoring.</li>
+                <li data-i18n="rtTechBullet3">Implemented GPOs, patch management, server hardening, and vulnerability remediation.</li>
+                <li data-i18n="rtTechBullet4">Resolved L2/L3 incidents involving operating systems, performance, connectivity, permissions, and server issues.</li>
+                <li data-i18n="rtTechBullet5">Supported Microsoft 365, Office 365, Exchange, Outlook, Active Directory, access control, and user administration.</li>
               </ul>
             </div>
           </article>
           <article class="timeline-item">
-            <span class="date">May 2014 - Feb 2019</span>
+            <span class="date" data-i18n="dateProcess">May 2014 - Feb 2019</span>
             <div>
-              <h3>Process Engineer | Petroleum Refinery</h3>
-              <p>Coordinated operational information, process documentation, technical reports, routine reports, process records, and workflow improvement with plant teams.</p>
+              <h3 data-i18n="roleProcess">Process Engineer | Petroleum Refinery</h3>
+              <p data-i18n="processSummary">Coordinated operational information, process documentation, technical reports, routine reports, process records, and workflow improvement with plant teams.</p>
             </div>
           </article>
           <article class="timeline-item">
-            <span class="date">Mar 2013 - May 2014</span>
+            <span class="date" data-i18n="dateErp">Mar 2013 - May 2014</span>
             <div>
-              <h3>ERP Analyst</h3>
-              <p>Supported ERP operations, data maintenance, user requests, testing activities, issue resolution, documentation, and system update coordination.</p>
+              <h3 data-i18n="roleErp">ERP Analyst</h3>
+              <p data-i18n="erpSummary">Supported ERP operations, data maintenance, user requests, testing activities, issue resolution, documentation, and system update coordination.</p>
             </div>
           </article>
           <article class="timeline-item">
-            <span class="date">Jan 2000 - Mar 2013</span>
+            <span class="date" data-i18n="dateTrainer">Jan 2000 - Mar 2013</span>
             <div>
-              <h3>Computer Trainer</h3>
-              <p>Prepared training materials, tracked learner records, and provided user support for computer systems and software in educational environments.</p>
+              <h3 data-i18n="roleTrainer">Computer Trainer</h3>
+              <p data-i18n="trainerSummary">Prepared training materials, tracked learner records, and provided user support for computer systems and software in educational environments.</p>
             </div>
           </article>
         </div>
@@ -950,29 +996,29 @@
     <section class="section" id="credentials">
       <div class="wrap">
         <div class="section-head">
-          <span class="section-kicker">05 / Credentials</span>
-          <h2>Education and certifications aligned with IT, cloud, and cybersecurity work.</h2>
+          <span class="section-kicker" data-i18n="credentialsKicker">05 / Credentials</span>
+          <h2 data-i18n="credentialsTitle">Education and certifications aligned with IT, cloud, and cybersecurity work.</h2>
         </div>
         <div class="credentials-grid">
           <article class="credential-block">
-            <h3>Education</h3>
+            <h3 data-i18n="educationTitle">Education</h3>
             <ul>
-              <li>AEC - IT Cloud Administration, in progress - Champlain College, Saint-Lambert, QC, Canada</li>
-              <li>AEC - Cybersecurity: Prevention and Intervention - Champlain College, Saint-Lambert, QC, Canada</li>
-              <li>System Engineer bachelor&apos;s degree - Santiago Mari&ntilde;o Polytechnic University, Venezuela</li>
-              <li>Teacher Training bachelor&apos;s degree - National Open University, Venezuela</li>
-              <li>Computer Technician (DEC) - Isaac Newton University Institute, Venezuela</li>
+              <li data-i18n="educationCloud">AEC - IT Cloud Administration, in progress - Champlain College, Saint-Lambert, QC, Canada</li>
+              <li data-i18n="educationCybersecurity">AEC - Cybersecurity: Prevention and Intervention - Champlain College, Saint-Lambert, QC, Canada</li>
+              <li data-i18n="educationSystems">System Engineer bachelor&apos;s degree - Santiago Mari&ntilde;o Polytechnic University, Venezuela</li>
+              <li data-i18n="educationTeacher">Teacher Training bachelor&apos;s degree - National Open University, Venezuela</li>
+              <li data-i18n="educationTechnician">Computer Technician (DEC) - Isaac Newton University Institute, Venezuela</li>
             </ul>
           </article>
           <article class="credential-block">
-            <h3>Certifications</h3>
+            <h3 data-i18n="certificationsTitle">Certifications</h3>
             <ul>
-              <li>CompTIA CySA+ - Verified Credential ID: 7Q8BVEQ50FQQ1882</li>
-              <li>CompTIA A+ - Verified Credential ID: C6LQT9FQ4BVEQ64J</li>
-              <li>CompTIA Tech+ - Verified Credential ID: EK360HJ5ZNBEC8LJ</li>
-              <li>Cisco Certified Network Associate (CCNA) - Verified Credential ID: f59e3cac390744c7aa6ed59210520a5c</li>
-              <li>Microsoft Certified: Azure Security Engineer Associate (AZ-500) - Credential ID: 92B71F0AB914408B</li>
-              <li>Microsoft Certified: Azure Fundamentals (AZ-900) - Credential ID: 561978C307D42ED3</li>
+              <li><span data-i18n="certCompTiaCysa">CompTIA CySA+ - Verified Credential ID:</span> 7Q8BVEQ50FQQ1882</li>
+              <li><span data-i18n="certCompTiaA">CompTIA A+ - Verified Credential ID:</span> C6LQT9FQ4BVEQ64J</li>
+              <li><span data-i18n="certCompTiaTech">CompTIA Tech+ - Verified Credential ID:</span> EK360HJ5ZNBEC8LJ</li>
+              <li><span data-i18n="certCisco">Cisco Certified Network Associate (CCNA) - Verified Credential ID:</span> f59e3cac390744c7aa6ed59210520a5c</li>
+              <li><span data-i18n="certAzureSecurity">Microsoft Certified: Azure Security Engineer Associate (AZ-500) - Credential ID:</span> 92B71F0AB914408B</li>
+              <li><span data-i18n="certAzureFundamentals">Microsoft Certified: Azure Fundamentals (AZ-900) - Credential ID:</span> 561978C307D42ED3</li>
             </ul>
           </article>
         </div>
@@ -982,16 +1028,16 @@
     <section class="contact-section" id="contact">
       <div class="wrap">
         <div>
-          <span class="section-kicker">06 / Contact</span>
-          <h2>Let&apos;s connect.</h2>
-          <p class="contact-copy">
+          <span class="section-kicker" data-i18n="contactKicker">06 / Contact</span>
+          <h2 data-i18n="letsConnect">Let&apos;s connect.</h2>
+          <p class="contact-copy" data-i18n="contactCopy">
             Open to IT support, systems engineering, cloud administration, cybersecurity, and infrastructure-focused
             opportunities.
           </p>
         </div>
-        <div class="contact-links" aria-label="Contact actions">
-          <a class="button button-dark" href="mailto:vasquezfu@gmail.com">Email Me</a>
-          <a class="button" href="Franklyn_Vasquez_CV.pdf" download>Download CV</a>
+        <div class="contact-links" aria-label="Contact actions" data-i18n-aria="contactActions">
+          <a class="button button-dark" href="mailto:vasquezfu@gmail.com" data-i18n="emailMe">Email Me</a>
+          <a class="button" href="Franklyn_Vasquez_CV.pdf" download data-i18n="downloadCv">Download CV</a>
         </div>
       </div>
     </section>
@@ -1000,8 +1046,293 @@
   <footer class="footer">
     <div class="wrap">
       <span>&copy; 2026 Franklyn Jose Vasquez Marin</span>
-      <span>Systems Engineer Portfolio</span>
+      <span data-i18n="railPortfolio">Systems Engineer Portfolio</span>
     </div>
   </footer>
+  <script>
+    const translations = {
+      fr: {
+        skipLink: "Passer au contenu principal",
+        primaryNav: "Navigation principale",
+        homeLabel: "Accueil de Franklyn Vasquez",
+        portfolioSections: "Sections du portfolio",
+        navAbout: "\u00c0 propos",
+        navPortfolio: "Portfolio",
+        navSkills: "Comp\u00e9tences",
+        navExperience: "Exp\u00e9rience",
+        navContact: "Contact",
+        languageLabel: "Langue",
+        downloadCv: "T\u00e9l\u00e9charger le CV",
+        railPortfolio: "Portfolio d'ing\u00e9nieur syst\u00e8mes",
+        portfolioHighlights: "Points forts du portfolio",
+        yearsInfrastructure: "Ann\u00e9es en infrastructure TI",
+        personalProjects: "Projets personnels",
+        location: "Longueuil, Qu\u00e9bec, Canada",
+        hello: "Bonjour",
+        heroSubtitle: "- Je suis Franklyn, un professionnel des TI",
+        heroSummary: "Ing\u00e9nieur syst\u00e8mes avec de l'exp\u00e9rience en infrastructure TI, administration infonuagique, virtualisation, cybers\u00e9curit\u00e9, outils DevOps et soutien aux entreprises. Je travaille avec Windows Server, VMware, Active Directory, Linux, Microsoft 365, les plateformes infonuagiques et des projets de produits pratiques.",
+        mainActions: "Actions principales",
+        contactMe: "Me contacter",
+        portraitAlt: "Portrait en noir et blanc de Franklyn Jose Vasquez Marin",
+        scrollDown: "D\u00e9filer vers le bas",
+        aboutKicker: "01 / \u00c0 propos",
+        aboutTitle: "Soutien fiable de l'infrastructure avec une expertise en infonuagique, s\u00e9curit\u00e9 et documentation.",
+        aboutCopy: "Je soutiens, d\u00e9panne, documente et am\u00e9liore les environnements technologiques d'entreprise. Mon exp\u00e9rience comprend Windows Server, la virtualisation VMware, Active Directory, les strat\u00e9gies de groupe, Microsoft 365, Linux, les plateformes infonuagiques, les rapports SQL et le d\u00e9veloppement d'applications. Je cr\u00e9e \u00e9galement des projets personnels qui d\u00e9montrent la livraison de produits, les concepts de gestion TI \u00e0 distance, le d\u00e9veloppement mobile et la conception centr\u00e9e sur l'utilisateur.",
+        contactDetails: "Coordonn\u00e9es",
+        emailLabel: "Courriel",
+        phoneLabel: "T\u00e9l\u00e9phone",
+        locationLabel: "Lieu",
+        languagesLabel: "Langues",
+        languagesValue: "Espagnol : langue maternelle, anglais : courant, fran\u00e7ais : notions de base",
+        portfolioKicker: "02 / Portfolio",
+        portfolioTitle: "Projets ax\u00e9s sur les op\u00e9rations TI, les applications mobiles et la livraison de produits utiles.",
+        projectRemotelyX: "Plateforme de gestion et de soutien TI \u00e0 distance illustrant les concepts d'acc\u00e8s \u00e0 distance, de terminal distant, de bureau \u00e0 distance, d'explorateur de fichiers distant, de gestion des utilisateurs et de prestation de services TI.",
+        openLink: "Ouvrir",
+        projectFlashcards: "Application Android publi\u00e9e pour l'apprentissage des langues avec cartes m\u00e9moire, exercices de prononciation et d'\u00e9coute, concepts de pratique orale, authentification des utilisateurs et \u00e9crans d'\u00e9tude structur\u00e9s.",
+        projectAgenda: "Application Android en d\u00e9veloppement ax\u00e9e sur la planification quotidienne, l'organisation de l'agenda, les rappels et la gestion des t\u00e2ches.",
+        projectKeyVault: "Application Android en d\u00e9veloppement ax\u00e9e sur le stockage et l'organisation s\u00e9curis\u00e9s des renseignements sensibles des utilisateurs.",
+        inProgress: "En cours",
+        skillsKicker: "03 / Comp\u00e9tences",
+        skillsTitle: "Comp\u00e9tences techniques pour les r\u00f4les de soutien, infrastructure, infonuagique, DevOps, donn\u00e9es et cybers\u00e9curit\u00e9.",
+        skillCloud: "Plateformes infonuagiques",
+        azureSkill: "Microsoft Azure : machines virtuelles et r\u00e9seautique",
+        skillSystems: "Syst\u00e8mes et infrastructure",
+        windowsSupport: "Windows Server 2016/2022 et soutien des postes de travail",
+        virtualizationSkill: "VMware et technologies de virtualisation",
+        skillDirectory: "Annuaire et r\u00e9seau",
+        directorySkill: "Active Directory, GPO, autorisations, contr\u00f4le d'acc\u00e8s",
+        microsoftSupport: "Soutien Microsoft 365, Office 365, Exchange et Outlook",
+        skillDevOps: "DevOps et outils",
+        monitoringSkill: "Surveillance des syst\u00e8mes, d\u00e9pannage et analyse des journaux",
+        skillProgramming: "Programmation et donn\u00e9es",
+        pythonSkill: "Notions de base en Python, PHP, VBA, scripts Bash",
+        sqlSkill: "SQL, PostgreSQL, formation Power BI, tableaux de bord",
+        skillCybersecurity: "Cybers\u00e9curit\u00e9",
+        hardeningSkill: "Durcissement des serveurs et correction des vuln\u00e9rabilit\u00e9s",
+        experienceKicker: "04 / Exp\u00e9rience",
+        experienceTitle: "Soutien aux entreprises, op\u00e9rations d'infrastructure, rapports techniques et formation.",
+        dateRtTech: "F\u00e9vr. 2019 - oct. 2024",
+        roleRtTech: "Ing\u00e9nieur syst\u00e8mes | RT TECH Inc.",
+        rtTechSummary: "Administration et soutien de l'infrastructure Windows, de la virtualisation, de la configuration de la s\u00e9curit\u00e9 et des op\u00e9rations de soutien aux entreprises.",
+        rtTechBullet1: "Soutien des environnements Windows Server 2016/2022 pour assurer la stabilit\u00e9, la disponibilit\u00e9 et la s\u00e9curit\u00e9.",
+        rtTechBullet2: "Gestion des machines virtuelles VMware, du provisionnement, de la configuration, de l'allocation des ressources et de la surveillance des performances.",
+        rtTechBullet3: "Mise en oeuvre des GPO, gestion des correctifs, durcissement des serveurs et correction des vuln\u00e9rabilit\u00e9s.",
+        rtTechBullet4: "R\u00e9solution des incidents L2/L3 li\u00e9s aux syst\u00e8mes d'exploitation, aux performances, \u00e0 la connectivit\u00e9, aux autorisations et aux serveurs.",
+        rtTechBullet5: "Soutien de Microsoft 365, Office 365, Exchange, Outlook, Active Directory, du contr\u00f4le d'acc\u00e8s et de l'administration des utilisateurs.",
+        dateProcess: "Mai 2014 - f\u00e9vr. 2019",
+        roleProcess: "Ing\u00e9nieur de proc\u00e9d\u00e9s | Raffinerie de p\u00e9trole",
+        processSummary: "Coordination de l'information op\u00e9rationnelle, de la documentation des proc\u00e9d\u00e9s, des rapports techniques et courants, des dossiers de proc\u00e9d\u00e9s et de l'am\u00e9lioration des flux de travail avec les \u00e9quipes de l'usine.",
+        dateErp: "Mars 2013 - mai 2014",
+        roleErp: "Analyste ERP",
+        erpSummary: "Soutien des op\u00e9rations ERP, de la maintenance des donn\u00e9es, des demandes des utilisateurs, des essais, de la r\u00e9solution des probl\u00e8mes, de la documentation et de la coordination des mises \u00e0 jour syst\u00e8me.",
+        dateTrainer: "Janv. 2000 - mars 2013",
+        roleTrainer: "Formateur en informatique",
+        trainerSummary: "Pr\u00e9paration de mat\u00e9riel de formation, suivi des dossiers des apprenants et soutien des utilisateurs pour les syst\u00e8mes informatiques et les logiciels dans des environnements \u00e9ducatifs.",
+        credentialsKicker: "05 / Titres et dipl\u00f4mes",
+        credentialsTitle: "Formation et certifications align\u00e9es sur le travail en TI, infonuagique et cybers\u00e9curit\u00e9.",
+        educationTitle: "Formation",
+        educationCloud: "AEC - Administration infonuagique TI, en cours - Champlain College, Saint-Lambert, QC, Canada",
+        educationCybersecurity: "AEC - Cybers\u00e9curit\u00e9 : pr\u00e9vention et intervention - Champlain College, Saint-Lambert, QC, Canada",
+        educationSystems: "Baccalaur\u00e9at en ing\u00e9nierie syst\u00e8mes - Universit\u00e9 polytechnique Santiago Mari\u00f1o, Venezuela",
+        educationTeacher: "Baccalaur\u00e9at en formation des enseignants - Universit\u00e9 nationale ouverte, Venezuela",
+        educationTechnician: "Technicien en informatique (DEC) - Institut universitaire Isaac Newton, Venezuela",
+        certificationsTitle: "Certifications",
+        certCompTiaCysa: "CompTIA CySA+ - Identifiant v\u00e9rifi\u00e9 :",
+        certCompTiaA: "CompTIA A+ - Identifiant v\u00e9rifi\u00e9 :",
+        certCompTiaTech: "CompTIA Tech+ - Identifiant v\u00e9rifi\u00e9 :",
+        certCisco: "Cisco Certified Network Associate (CCNA) - Identifiant v\u00e9rifi\u00e9 :",
+        certAzureSecurity: "Microsoft Certified: Azure Security Engineer Associate (AZ-500) - Identifiant :",
+        certAzureFundamentals: "Microsoft Certified: Azure Fundamentals (AZ-900) - Identifiant :",
+        contactKicker: "06 / Contact",
+        letsConnect: "Communiquons.",
+        contactCopy: "Ouvert aux possibilit\u00e9s en soutien TI, ing\u00e9nierie syst\u00e8mes, administration infonuagique, cybers\u00e9curit\u00e9 et infrastructure.",
+        contactActions: "Actions de contact",
+        emailMe: "M'envoyer un courriel"
+      },
+      es: {
+        skipLink: "Ir al contenido principal",
+        primaryNav: "Navegaci\u00f3n principal",
+        homeLabel: "Inicio de Franklyn Vasquez",
+        portfolioSections: "Secciones del portafolio",
+        navAbout: "Sobre m\u00ed",
+        navPortfolio: "Portafolio",
+        navSkills: "Habilidades",
+        navExperience: "Experiencia",
+        navContact: "Contacto",
+        languageLabel: "Idioma",
+        downloadCv: "Descargar CV",
+        railPortfolio: "Portafolio de ingeniero de sistemas",
+        portfolioHighlights: "Aspectos destacados del portafolio",
+        yearsInfrastructure: "A\u00f1os en infraestructura TI",
+        personalProjects: "Proyectos personales",
+        location: "Longueuil, Quebec, Canad\u00e1",
+        hello: "Hola",
+        heroSubtitle: "- Soy Franklyn, profesional de TI",
+        heroSummary: "Ingeniero de sistemas con experiencia en infraestructura TI, administraci\u00f3n en la nube, virtualizaci\u00f3n, ciberseguridad, herramientas DevOps y soporte empresarial. Trabajo con Windows Server, VMware, Active Directory, Linux, Microsoft 365, plataformas en la nube y proyectos pr\u00e1cticos de productos.",
+        mainActions: "Acciones principales",
+        contactMe: "Cont\u00e1ctame",
+        portraitAlt: "Retrato en blanco y negro de Franklyn Jose Vasquez Marin",
+        scrollDown: "Despl\u00e1zate hacia abajo",
+        aboutKicker: "01 / Sobre m\u00ed",
+        aboutTitle: "Soporte confiable de infraestructura con conocimientos de nube, seguridad y documentaci\u00f3n.",
+        aboutCopy: "Doy soporte, soluciono problemas, documento y mejoro entornos tecnol\u00f3gicos empresariales. Mi experiencia incluye Windows Server, virtualizaci\u00f3n VMware, Active Directory, directivas de grupo, Microsoft 365, Linux, plataformas en la nube, reportes SQL y desarrollo de aplicaciones. Tambi\u00e9n creo proyectos personales que demuestran entrega de productos, conceptos de administraci\u00f3n TI remota, desarrollo m\u00f3vil y dise\u00f1o centrado en el usuario.",
+        contactDetails: "Datos de contacto",
+        emailLabel: "Correo",
+        phoneLabel: "Tel\u00e9fono",
+        locationLabel: "Ubicaci\u00f3n",
+        languagesLabel: "Idiomas",
+        languagesValue: "Espa\u00f1ol: nativo, ingl\u00e9s: fluido, franc\u00e9s: b\u00e1sico",
+        portfolioKicker: "02 / Portafolio",
+        portfolioTitle: "Proyectos centrados en operaciones TI, aplicaciones m\u00f3viles y entrega de productos \u00fatiles.",
+        projectRemotelyX: "Plataforma orientada a la administraci\u00f3n y soporte TI remoto que demuestra conceptos de acceso remoto, terminal remota, escritorio remoto, explorador de archivos remoto, gesti\u00f3n de usuarios y prestaci\u00f3n de servicios TI.",
+        openLink: "Abrir",
+        projectFlashcards: "Aplicaci\u00f3n Android publicada para aprender idiomas con tarjetas de estudio, pr\u00e1ctica de pronunciaci\u00f3n y comprensi\u00f3n auditiva, conceptos de pr\u00e1ctica oral, autenticaci\u00f3n de usuarios y pantallas de estudio estructuradas.",
+        projectAgenda: "Aplicaci\u00f3n Android en desarrollo centrada en planificaci\u00f3n diaria, organizaci\u00f3n de agenda, recordatorios y gesti\u00f3n de tareas.",
+        projectKeyVault: "Aplicaci\u00f3n Android en desarrollo centrada en almacenar y organizar informaci\u00f3n confidencial de los usuarios.",
+        inProgress: "En progreso",
+        skillsKicker: "03 / Habilidades",
+        skillsTitle: "Conocimientos t\u00e9cnicos para roles de soporte, infraestructura, nube, DevOps, datos y ciberseguridad.",
+        skillCloud: "Plataformas en la nube",
+        azureSkill: "Microsoft Azure: m\u00e1quinas virtuales y redes",
+        skillSystems: "Sistemas e infraestructura",
+        windowsSupport: "Windows Server 2016/2022 y soporte de escritorio",
+        virtualizationSkill: "VMware y tecnolog\u00edas de virtualizaci\u00f3n",
+        skillDirectory: "Directorio y redes",
+        directorySkill: "Active Directory, GPO, permisos, control de acceso",
+        microsoftSupport: "Soporte de Microsoft 365, Office 365, Exchange y Outlook",
+        skillDevOps: "DevOps y herramientas",
+        monitoringSkill: "Monitoreo de sistemas, soluci\u00f3n de problemas y an\u00e1lisis de registros",
+        skillProgramming: "Programaci\u00f3n y datos",
+        pythonSkill: "Python b\u00e1sico, PHP, VBA, scripts de Bash",
+        sqlSkill: "SQL, PostgreSQL, cursos de Power BI, paneles",
+        skillCybersecurity: "Ciberseguridad",
+        hardeningSkill: "Fortalecimiento de servidores y correcci\u00f3n de vulnerabilidades",
+        experienceKicker: "04 / Experiencia",
+        experienceTitle: "Soporte empresarial, operaciones de infraestructura, reportes t\u00e9cnicos y capacitaci\u00f3n.",
+        dateRtTech: "Feb. 2019 - oct. 2024",
+        roleRtTech: "Ingeniero de sistemas | RT TECH Inc.",
+        rtTechSummary: "Administraci\u00f3n y soporte de infraestructura basada en Windows, virtualizaci\u00f3n, configuraci\u00f3n de seguridad y operaciones de soporte empresarial.",
+        rtTechBullet1: "Soporte de entornos Windows Server 2016/2022 para mantener estabilidad, disponibilidad y seguridad.",
+        rtTechBullet2: "Gesti\u00f3n de m\u00e1quinas virtuales VMware, aprovisionamiento, configuraci\u00f3n, asignaci\u00f3n de recursos y monitoreo del rendimiento.",
+        rtTechBullet3: "Implementaci\u00f3n de GPO, gesti\u00f3n de parches, fortalecimiento de servidores y correcci\u00f3n de vulnerabilidades.",
+        rtTechBullet4: "Resoluci\u00f3n de incidentes L2/L3 relacionados con sistemas operativos, rendimiento, conectividad, permisos y servidores.",
+        rtTechBullet5: "Soporte de Microsoft 365, Office 365, Exchange, Outlook, Active Directory, control de acceso y administraci\u00f3n de usuarios.",
+        dateProcess: "May. 2014 - feb. 2019",
+        roleProcess: "Ingeniero de procesos | Refiner\u00eda de petr\u00f3leo",
+        processSummary: "Coordinaci\u00f3n de informaci\u00f3n operativa, documentaci\u00f3n de procesos, informes t\u00e9cnicos y rutinarios, registros de procesos y mejoras del flujo de trabajo con equipos de planta.",
+        dateErp: "Mar. 2013 - may. 2014",
+        roleErp: "Analista ERP",
+        erpSummary: "Soporte de operaciones ERP, mantenimiento de datos, solicitudes de usuarios, pruebas, resoluci\u00f3n de problemas, documentaci\u00f3n y coordinaci\u00f3n de actualizaciones del sistema.",
+        dateTrainer: "Ene. 2000 - mar. 2013",
+        roleTrainer: "Instructor de inform\u00e1tica",
+        trainerSummary: "Preparaci\u00f3n de materiales de capacitaci\u00f3n, seguimiento de registros de estudiantes y soporte a usuarios de sistemas inform\u00e1ticos y software en entornos educativos.",
+        credentialsKicker: "05 / Credenciales",
+        credentialsTitle: "Educaci\u00f3n y certificaciones alineadas con el trabajo en TI, nube y ciberseguridad.",
+        educationTitle: "Educaci\u00f3n",
+        educationCloud: "AEC - Administraci\u00f3n TI en la nube, en progreso - Champlain College, Saint-Lambert, QC, Canad\u00e1",
+        educationCybersecurity: "AEC - Ciberseguridad: prevenci\u00f3n e intervenci\u00f3n - Champlain College, Saint-Lambert, QC, Canad\u00e1",
+        educationSystems: "Licenciatura en ingenier\u00eda de sistemas - Universidad Polit\u00e9cnica Santiago Mari\u00f1o, Venezuela",
+        educationTeacher: "Licenciatura en formaci\u00f3n docente - Universidad Nacional Abierta, Venezuela",
+        educationTechnician: "T\u00e9cnico en inform\u00e1tica (DEC) - Instituto Universitario Isaac Newton, Venezuela",
+        certificationsTitle: "Certificaciones",
+        certCompTiaCysa: "CompTIA CySA+ - ID de credencial verificada:",
+        certCompTiaA: "CompTIA A+ - ID de credencial verificada:",
+        certCompTiaTech: "CompTIA Tech+ - ID de credencial verificada:",
+        certCisco: "Cisco Certified Network Associate (CCNA) - ID de credencial verificada:",
+        certAzureSecurity: "Microsoft Certified: Azure Security Engineer Associate (AZ-500) - ID de credencial:",
+        certAzureFundamentals: "Microsoft Certified: Azure Fundamentals (AZ-900) - ID de credencial:",
+        contactKicker: "06 / Contacto",
+        letsConnect: "Conectemos.",
+        contactCopy: "Disponible para oportunidades en soporte TI, ingenier\u00eda de sistemas, administraci\u00f3n en la nube, ciberseguridad e infraestructura.",
+        contactActions: "Acciones de contacto",
+        emailMe: "Escr\u00edbeme"
+      }
+    };
+
+    const pageMetadata = {
+      en: {
+        title: "Franklyn Jose Vasquez Marin | Systems Engineer Portfolio",
+        description: "Portfolio for Franklyn Jose Vasquez Marin, Systems Engineer in Longueuil, Quebec, with experience in IT infrastructure, cloud administration, virtualization, cybersecurity, DevOps tools, and enterprise support."
+      },
+      fr: {
+        title: "Franklyn Jose Vasquez Marin | Portfolio d'ing\u00e9nieur syst\u00e8mes",
+        description: "Portfolio de Franklyn Jose Vasquez Marin, ing\u00e9nieur syst\u00e8mes \u00e0 Longueuil, Qu\u00e9bec, avec de l'exp\u00e9rience en infrastructure TI, administration infonuagique, virtualisation, cybers\u00e9curit\u00e9, DevOps et soutien aux entreprises."
+      },
+      es: {
+        title: "Franklyn Jose Vasquez Marin | Portafolio de ingeniero de sistemas",
+        description: "Portafolio de Franklyn Jose Vasquez Marin, ingeniero de sistemas en Longueuil, Quebec, con experiencia en infraestructura TI, administraci\u00f3n en la nube, virtualizaci\u00f3n, ciberseguridad, DevOps y soporte empresarial."
+      }
+    };
+
+    const textDefaults = new Map();
+    const ariaDefaults = new Map();
+    const altDefaults = new Map();
+    const languageSelect = document.getElementById("language-select");
+    const descriptionMeta = document.querySelector('meta[name="description"]');
+
+    document.querySelectorAll("[data-i18n]").forEach((element) => {
+      textDefaults.set(element, element.textContent.trim());
+    });
+
+    document.querySelectorAll("[data-i18n-aria]").forEach((element) => {
+      ariaDefaults.set(element, element.getAttribute("aria-label"));
+    });
+
+    document.querySelectorAll("[data-i18n-alt]").forEach((element) => {
+      altDefaults.set(element, element.getAttribute("alt"));
+    });
+
+    function translatePage(language) {
+      const dictionary = translations[language] || {};
+      const metadata = pageMetadata[language] || pageMetadata.en;
+
+      document.documentElement.lang = language;
+      document.title = metadata.title;
+      descriptionMeta.setAttribute("content", metadata.description);
+
+      document.querySelectorAll("[data-i18n]").forEach((element) => {
+        const key = element.dataset.i18n;
+        element.textContent = dictionary[key] || textDefaults.get(element);
+      });
+
+      document.querySelectorAll("[data-i18n-aria]").forEach((element) => {
+        const key = element.dataset.i18nAria;
+        element.setAttribute("aria-label", dictionary[key] || ariaDefaults.get(element));
+      });
+
+      document.querySelectorAll("[data-i18n-alt]").forEach((element) => {
+        const key = element.dataset.i18nAlt;
+        element.setAttribute("alt", dictionary[key] || altDefaults.get(element));
+      });
+
+      languageSelect.value = language;
+      try {
+        localStorage.setItem("portfolioLanguage", language);
+      } catch (error) {
+        // The site still works when storage is unavailable.
+      }
+    }
+
+    let initialLanguage = "en";
+    const requestedLanguage = new URLSearchParams(window.location.search).get("lang");
+    try {
+      const savedLanguage = localStorage.getItem("portfolioLanguage");
+      if (["en", "fr", "es"].includes(savedLanguage)) {
+        initialLanguage = savedLanguage;
+      }
+    } catch (error) {
+      // English remains the default when storage is unavailable.
+    }
+
+    if (["en", "fr", "es"].includes(requestedLanguage)) {
+      initialLanguage = requestedLanguage;
+    }
+
+    languageSelect.addEventListener("change", (event) => {
+      translatePage(event.target.value);
+    });
+
+    translatePage(initialLanguage);
+  </script>
 </body>
 </html>
