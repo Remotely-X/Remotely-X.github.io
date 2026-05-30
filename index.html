@@ -503,6 +503,25 @@
       border-top: 1px solid var(--ink);
     }
 
+    .credential-block li {
+      padding-right: 4px;
+    }
+
+    .verify-link {
+      display: inline-block;
+      margin-left: 8px;
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 650;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .verify-link:hover {
+      color: var(--ink);
+      text-decoration: underline;
+    }
+
     .contact-section {
       padding: 100px 0;
       border-top: 1px solid var(--ink);
@@ -1013,12 +1032,12 @@
           <article class="credential-block">
             <h3 data-i18n="certificationsTitle">Certifications</h3>
             <ul>
-              <li><span data-i18n="certCompTiaCysa">CompTIA CySA+ - Verified Credential ID:</span> 7Q8BVEQ50FQQ1882</li>
-              <li><span data-i18n="certCompTiaA">CompTIA A+ - Verified Credential ID:</span> C6LQT9FQ4BVEQ64J</li>
-              <li><span data-i18n="certCompTiaTech">CompTIA Tech+ - Verified Credential ID:</span> EK360HJ5ZNBEC8LJ</li>
-              <li><span data-i18n="certCisco">Cisco Certified Network Associate (CCNA) - Verified Credential ID:</span> f59e3cac390744c7aa6ed59210520a5c</li>
-              <li><span data-i18n="certAzureSecurity">Microsoft Certified: Azure Security Engineer Associate (AZ-500) - Credential ID:</span> 92B71F0AB914408B</li>
-              <li><span data-i18n="certAzureFundamentals">Microsoft Certified: Azure Fundamentals (AZ-900) - Credential ID:</span> 561978C307D42ED3</li>
+              <li><span data-i18n="certCompTiaCysa">CompTIA CySA+ - Verified Credential ID:</span> 7Q8BVEQ50FQQ1882 <a class="verify-link" href="https://verify.comptia.org/" target="_blank" rel="noopener noreferrer"><span data-i18n="verifyLink">Verify</span> &#8599;</a></li>
+              <li><span data-i18n="certCompTiaA">CompTIA A+ - Verified Credential ID:</span> C6LQT9FQ4BVEQ64J <a class="verify-link" href="https://verify.comptia.org/" target="_blank" rel="noopener noreferrer"><span data-i18n="verifyLink">Verify</span> &#8599;</a></li>
+              <li><span data-i18n="certCompTiaTech">CompTIA Tech+ - Verified Credential ID:</span> EK360HJ5ZNBEC8LJ <a class="verify-link" href="https://verify.comptia.org/" target="_blank" rel="noopener noreferrer"><span data-i18n="verifyLink">Verify</span> &#8599;</a></li>
+              <li><span data-i18n="certCisco">Cisco Certified Network Associate (CCNA) - Verified Credential ID:</span> f59e3cac390744c7aa6ed59210520a5c <a class="verify-link" href="https://www.cisco.com/go/verifycertificate" target="_blank" rel="noopener noreferrer"><span data-i18n="verifyLink">Verify</span> &#8599;</a></li>
+              <li><span data-i18n="certAzureSecurity">Microsoft Certified: Azure Security Engineer Associate (AZ-500) - Credential ID:</span> 92B71F0AB914408B <a class="verify-link" href="https://learn.microsoft.com/api/credentials/share/en-ca/FranklynJoseVasquez-9292/92B71F0AB914408B?sharingId=A079B541BBC71D75" target="_blank" rel="noopener noreferrer"><span data-i18n="viewCredential">View credential</span> &#8599;</a></li>
+              <li><span data-i18n="certAzureFundamentals">Microsoft Certified: Azure Fundamentals (AZ-900) - Credential ID:</span> 561978C307D42ED3 <a class="verify-link" href="https://learn.microsoft.com/api/credentials/share/en-ca/FranklynJoseVasquez-9292/561978C307D42ED3?sharingId=A079B541BBC71D75" target="_blank" rel="noopener noreferrer"><span data-i18n="viewCredential">View credential</span> &#8599;</a></li>
             </ul>
           </article>
         </div>
@@ -1143,6 +1162,8 @@
         certCisco: "Cisco Certified Network Associate (CCNA) - Identifiant v\u00e9rifi\u00e9 :",
         certAzureSecurity: "Microsoft Certified: Azure Security Engineer Associate (AZ-500) - Identifiant :",
         certAzureFundamentals: "Microsoft Certified: Azure Fundamentals (AZ-900) - Identifiant :",
+        verifyLink: "V\u00e9rifier",
+        viewCredential: "Voir le titre",
         contactKicker: "06 / Contact",
         letsConnect: "Communiquons.",
         contactCopy: "Ouvert aux possibilit\u00e9s en soutien TI, ing\u00e9nierie syst\u00e8mes, administration infonuagique, cybers\u00e9curit\u00e9 et infrastructure.",
@@ -1241,6 +1262,8 @@
         certCisco: "Cisco Certified Network Associate (CCNA) - ID de credencial verificada:",
         certAzureSecurity: "Microsoft Certified: Azure Security Engineer Associate (AZ-500) - ID de credencial:",
         certAzureFundamentals: "Microsoft Certified: Azure Fundamentals (AZ-900) - ID de credencial:",
+        verifyLink: "Verificar",
+        viewCredential: "Ver credencial",
         contactKicker: "06 / Contacto",
         letsConnect: "Conectemos.",
         contactCopy: "Disponible para oportunidades en soporte TI, ingenier\u00eda de sistemas, administraci\u00f3n en la nube, ciberseguridad e infraestructura.",
