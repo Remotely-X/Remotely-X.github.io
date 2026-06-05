@@ -506,6 +506,17 @@
       gap: 12px;
     }
 
+    .private-documents-list {
+      display: grid;
+      width: min(460px, 100%);
+      grid-template-columns: repeat(2, minmax(180px, 1fr));
+      gap: 10px;
+    }
+
+    .private-documents-list .button {
+      min-height: 44px;
+    }
+
     .private-documents-note {
       max-width: 360px;
       margin: 0;
@@ -784,6 +795,11 @@
 
       .button,
       .project-link {
+        width: 100%;
+      }
+
+      .private-documents-list {
+        grid-template-columns: 1fr;
         width: 100%;
       }
 
@@ -1110,7 +1126,14 @@
             </p>
           </div>
           <div class="private-documents-actions">
-            <a class="button button-dark" href="documents/private-documents.rar" download data-i18n="privateDownload">Download protected documents</a>
+            <div class="private-documents-list" aria-label="Protected document categories" data-i18n-aria="privateArchiveList">
+              <a class="button" href="documents/private-documents/Education.rar" download data-i18n="privateEducation">Education</a>
+              <a class="button" href="documents/private-documents/Manuals.rar" download data-i18n="privateManuals">Manuals</a>
+              <a class="button" href="documents/private-documents/Presentations.rar" download data-i18n="privatePresentations">Presentations</a>
+              <a class="button" href="documents/private-documents/Plans.rar" download data-i18n="privatePlans">Plans</a>
+              <a class="button" href="documents/private-documents/Spatistics.rar" download data-i18n="privateSpatistics">Spatistics</a>
+              <a class="button" href="documents/private-documents/Contracts.rar" download data-i18n="privateContracts">Contracts</a>
+            </div>
             <p class="private-documents-note" data-i18n="privateNote">If you need access, please contact me to request the password.</p>
           </div>
         </div>
@@ -1243,6 +1266,13 @@
         privateText: "Certains documents justificatifs sont disponibles dans une archive prot\u00e9g\u00e9e par mot de passe. Pour des raisons de s\u00e9curit\u00e9, le contenu ne peut \u00eatre ouvert qu'avec un mot de passe fourni directement par moi.",
         privateSupportText: "Ces documents peuvent inclure des certificats, des r\u00e9f\u00e9rences ou des documents justificatifs li\u00e9s \u00e0 l'emploi et \u00e0 la formation. Les d\u00e9tails priv\u00e9s ne sont pas publi\u00e9s publiquement.",
         privateDownload: "T\u00e9l\u00e9charger les documents prot\u00e9g\u00e9s",
+        privateArchiveList: "Cat\u00e9gories de documents prot\u00e9g\u00e9s",
+        privateEducation: "Formation",
+        privateManuals: "Manuels",
+        privatePresentations: "Pr\u00e9sentations",
+        privatePlans: "Plans",
+        privateSpatistics: "Spatistics",
+        privateContracts: "Contrats",
         privateNote: "Si vous avez besoin d'un acc\u00e8s, veuillez me contacter pour demander le mot de passe.",
         contactKicker: "07 / Contact",
         letsConnect: "Communiquons.",
@@ -1350,6 +1380,13 @@
         privateText: "Algunos documentos de soporte est\u00e1n disponibles en un archivo protegido con contrase\u00f1a. Por seguridad, el contenido solo puede abrirse con una contrase\u00f1a proporcionada directamente por m\u00ed.",
         privateSupportText: "Estos documentos pueden incluir certificados, referencias o documentaci\u00f3n de soporte laboral y educativo. Los detalles privados no se publican en el sitio.",
         privateDownload: "Descargar documentos protegidos",
+        privateArchiveList: "Categor\u00edas de documentos protegidos",
+        privateEducation: "Educaci\u00f3n",
+        privateManuals: "Manuales",
+        privatePresentations: "Presentaciones",
+        privatePlans: "Planes",
+        privateSpatistics: "Spatistics",
+        privateContracts: "Contratos",
         privateNote: "Si necesita acceso, por favor cont\u00e1cteme para solicitar la contrase\u00f1a.",
         contactKicker: "07 / Contacto",
         letsConnect: "Conectemos.",

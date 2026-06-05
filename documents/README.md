@@ -1,11 +1,9 @@
-# Private Documents Placeholder
+# Protected Documents Folder
 
-Place the encrypted WinRAR/7-Zip archive here with this exact filename:
+The portfolio links to encrypted archives inside this folder:
 
-`private-documents.rar`
+`documents/private-documents/`
 
-The portfolio download button points to:
+Each archive must be created with WinRAR/7-Zip encryption before upload. Do not commit or publish any password in this repository. Share passwords directly with authorized people only.
 
-`documents/private-documents.rar`
-
-Do not commit or publish any password in this repository. Share the password directly with the authorized person.
+Current category filenames are documented in `private-documents/README.md`.
