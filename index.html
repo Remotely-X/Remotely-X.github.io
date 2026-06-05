@@ -502,27 +502,56 @@
     .private-documents-actions {
       display: flex;
       flex-direction: column;
-      align-items: flex-end;
+      align-items: stretch;
       gap: 12px;
+      width: min(640px, 100%);
     }
 
-    .private-documents-list {
+    .private-documents-controls {
       display: grid;
-      width: min(460px, 100%);
-      grid-template-columns: repeat(2, minmax(180px, 1fr));
-      gap: 10px;
+      grid-template-columns: minmax(220px, 0.72fr) minmax(220px, 1fr);
+      gap: 12px;
+      align-items: stretch;
     }
 
-    .private-documents-list .button {
-      min-height: 44px;
+    .private-documents-select {
+      min-height: 48px;
+      width: 100%;
+      padding: 10px 42px 10px 14px;
+      border: 1px solid var(--ink);
+      border-radius: 0;
+      background: transparent;
+      color: var(--ink);
+      cursor: pointer;
+      font: inherit;
+      font-weight: 650;
+    }
+
+    .button[aria-disabled="true"] {
+      cursor: not-allowed;
+      opacity: 0.55;
+    }
+
+    .button[aria-disabled="true"]:hover {
+      transform: none;
+      background: var(--ink);
+      color: #fff;
     }
 
     .private-documents-note {
-      max-width: 360px;
+      max-width: none;
       margin: 0;
       color: var(--muted);
       font-size: 0.95rem;
-      text-align: right;
+      text-align: left;
+    }
+
+    .private-documents-status {
+      min-height: 1.4em;
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-weight: 650;
     }
 
     .timeline-item {
@@ -756,11 +785,7 @@
       }
 
       .private-documents-actions {
-        align-items: flex-start;
-      }
-
-      .private-documents-note {
-        text-align: left;
+        align-items: stretch;
       }
     }
 
@@ -798,7 +823,7 @@
         width: 100%;
       }
 
-      .private-documents-list {
+      .private-documents-controls {
         grid-template-columns: 1fr;
         width: 100%;
       }
@@ -1126,14 +1151,19 @@
             </p>
           </div>
           <div class="private-documents-actions">
-            <div class="private-documents-list" aria-label="Protected document categories" data-i18n-aria="privateArchiveList">
-              <a class="button" href="documents/private-documents/Education.rar" download data-i18n="privateEducation">Education</a>
-              <a class="button" href="documents/private-documents/Manuals.rar" download data-i18n="privateManuals">Manuals</a>
-              <a class="button" href="documents/private-documents/Presentations.rar" download data-i18n="privatePresentations">Presentations</a>
-              <a class="button" href="documents/private-documents/Plans.rar" download data-i18n="privatePlans">Plans</a>
-              <a class="button" href="documents/private-documents/Spatistics.rar" download data-i18n="privateSpatistics">Spatistics</a>
-              <a class="button" href="documents/private-documents/Contracts.rar" download data-i18n="privateContracts">Contracts</a>
+            <div class="private-documents-controls">
+              <label class="sr-only" for="private-document-category" data-i18n="privateCategoryLabel">Document category</label>
+              <select class="private-documents-select" id="private-document-category" aria-label="Document category" data-i18n-aria="privateCategoryLabel">
+                <option value="Education" data-i18n="privateEducation">Education</option>
+                <option value="Manuals" data-i18n="privateManuals">Manuals</option>
+                <option value="Presentations" data-i18n="privatePresentations">Presentations</option>
+                <option value="Plans" data-i18n="privatePlans">Plans</option>
+                <option value="Spatistics" data-i18n="privateSpatistics">Spatistics</option>
+                <option value="Contracts" data-i18n="privateContracts">Contracts</option>
+              </select>
+              <a class="button button-dark" id="private-document-download" href="documents/private-documents/Education.rar" download="Education.rar">Download Education.rar</a>
             </div>
+            <p class="private-documents-status" id="private-document-status" aria-live="polite"></p>
             <p class="private-documents-note" data-i18n="privateNote">If you need access, please contact me to request the password.</p>
           </div>
         </div>
@@ -1266,6 +1296,7 @@
         privateText: "Certains documents justificatifs sont disponibles dans une archive prot\u00e9g\u00e9e par mot de passe. Pour des raisons de s\u00e9curit\u00e9, le contenu ne peut \u00eatre ouvert qu'avec un mot de passe fourni directement par moi.",
         privateSupportText: "Ces documents peuvent inclure des certificats, des r\u00e9f\u00e9rences ou des documents justificatifs li\u00e9s \u00e0 l'emploi et \u00e0 la formation. Les d\u00e9tails priv\u00e9s ne sont pas publi\u00e9s publiquement.",
         privateDownload: "T\u00e9l\u00e9charger les documents prot\u00e9g\u00e9s",
+        privateCategoryLabel: "Cat\u00e9gorie de document",
         privateArchiveList: "Cat\u00e9gories de documents prot\u00e9g\u00e9s",
         privateEducation: "Formation",
         privateManuals: "Manuels",
@@ -1380,6 +1411,7 @@
         privateText: "Algunos documentos de soporte est\u00e1n disponibles en un archivo protegido con contrase\u00f1a. Por seguridad, el contenido solo puede abrirse con una contrase\u00f1a proporcionada directamente por m\u00ed.",
         privateSupportText: "Estos documentos pueden incluir certificados, referencias o documentaci\u00f3n de soporte laboral y educativo. Los detalles privados no se publican en el sitio.",
         privateDownload: "Descargar documentos protegidos",
+        privateCategoryLabel: "Categor\u00eda de documento",
         privateArchiveList: "Categor\u00edas de documentos protegidos",
         privateEducation: "Educaci\u00f3n",
         privateManuals: "Manuales",
@@ -1419,8 +1451,34 @@
       fr: "Franklyn_Vasquez_CV_FR.pdf",
       es: "Franklyn_Vasquez_CV_ES.pdf"
     };
+    const privateDocumentText = {
+      en: {
+        download: "Download",
+        checking: "Checking file:",
+        available: "Ready to download:",
+        missing: "File not found:"
+      },
+      fr: {
+        download: "T\u00e9l\u00e9charger",
+        checking: "V\u00e9rification du fichier :",
+        available: "Pr\u00eat \u00e0 t\u00e9l\u00e9charger :",
+        missing: "Fichier introuvable :"
+      },
+      es: {
+        download: "Descargar",
+        checking: "Verificando archivo:",
+        available: "Listo para descargar:",
+        missing: "Archivo no encontrado:"
+      }
+    };
+    const privateDocumentBasePath = "documents/private-documents";
     const languageSelect = document.getElementById("language-select");
+    const privateDocumentSelect = document.getElementById("private-document-category");
+    const privateDocumentDownload = document.getElementById("private-document-download");
+    const privateDocumentStatus = document.getElementById("private-document-status");
     const descriptionMeta = document.querySelector('meta[name="description"]');
+    let currentLanguage = "en";
+    let privateDocumentCheckId = 0;
 
     document.querySelectorAll("[data-i18n]").forEach((element) => {
       textDefaults.set(element, element.textContent.trim());
@@ -1437,6 +1495,7 @@
     function translatePage(language) {
       const dictionary = translations[language] || {};
       const metadata = pageMetadata[language] || pageMetadata.en;
+      currentLanguage = language;
 
       document.documentElement.lang = language;
       document.title = metadata.title;
@@ -1464,10 +1523,50 @@
       });
 
       languageSelect.value = language;
+      updatePrivateDocumentDownload();
       try {
         localStorage.setItem("portfolioLanguage", language);
       } catch (error) {
         // The site still works when storage is unavailable.
+      }
+    }
+
+    function getPrivateDocumentFilename() {
+      const category = privateDocumentSelect ? privateDocumentSelect.value : "Education";
+      return `${category}.rar`;
+    }
+
+    function setPrivateDocumentAvailability(isAvailable, filename) {
+      const text = privateDocumentText[currentLanguage] || privateDocumentText.en;
+      privateDocumentDownload.setAttribute("aria-disabled", String(!isAvailable));
+      privateDocumentStatus.textContent = `${isAvailable ? text.available : text.missing} ${filename}`;
+    }
+
+    async function updatePrivateDocumentDownload() {
+      if (!privateDocumentSelect || !privateDocumentDownload || !privateDocumentStatus) {
+        return;
+      }
+
+      const text = privateDocumentText[currentLanguage] || privateDocumentText.en;
+      const filename = getPrivateDocumentFilename();
+      const path = `${privateDocumentBasePath}/${filename}`;
+      const checkId = ++privateDocumentCheckId;
+
+      privateDocumentDownload.textContent = `${text.download} ${filename}`;
+      privateDocumentDownload.setAttribute("href", path);
+      privateDocumentDownload.setAttribute("download", filename);
+      privateDocumentDownload.setAttribute("aria-disabled", "true");
+      privateDocumentStatus.textContent = `${text.checking} ${filename}`;
+
+      try {
+        const response = await fetch(path, { method: "HEAD", cache: "no-store" });
+        if (checkId === privateDocumentCheckId) {
+          setPrivateDocumentAvailability(response.ok, filename);
+        }
+      } catch (error) {
+        if (checkId === privateDocumentCheckId) {
+          setPrivateDocumentAvailability(false, filename);
+        }
       }
     }
 
@@ -1489,6 +1588,17 @@
     languageSelect.addEventListener("change", (event) => {
       translatePage(event.target.value);
     });
+
+    if (privateDocumentSelect && privateDocumentDownload) {
+      privateDocumentSelect.addEventListener("change", updatePrivateDocumentDownload);
+      privateDocumentDownload.addEventListener("click", (event) => {
+        if (privateDocumentDownload.getAttribute("aria-disabled") === "true") {
+          event.preventDefault();
+          const text = privateDocumentText[currentLanguage] || privateDocumentText.en;
+          privateDocumentStatus.textContent = `${text.missing} ${getPrivateDocumentFilename()}`;
+        }
+      });
+    }
 
     translatePage(initialLanguage);
   </script>
