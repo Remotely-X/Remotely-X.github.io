@@ -476,6 +476,44 @@
       margin-top: 8px;
     }
 
+    .private-documents-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 32px;
+      align-items: end;
+      padding: 32px 0;
+      border-top: 1px solid var(--ink);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .private-documents-copy {
+      max-width: 760px;
+      margin: 0;
+      color: #3f3f3b;
+      font-size: 1.08rem;
+    }
+
+    .private-documents-support {
+      max-width: 760px;
+      margin: 18px 0 0;
+      color: var(--muted);
+    }
+
+    .private-documents-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 12px;
+    }
+
+    .private-documents-note {
+      max-width: 360px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+      text-align: right;
+    }
+
     .timeline-item {
       display: grid;
       grid-template-columns: 190px minmax(0, 1fr);
@@ -682,6 +720,7 @@
       .section-head,
       .about-copy,
       .credentials-grid,
+      .private-documents-panel,
       .contact-section .wrap {
         grid-template-columns: 1fr;
       }
@@ -703,6 +742,14 @@
 
       .contact-links {
         justify-content: flex-start;
+      }
+
+      .private-documents-actions {
+        align-items: flex-start;
+      }
+
+      .private-documents-note {
+        text-align: left;
       }
     }
 
@@ -779,6 +826,7 @@
         <a href="#portfolio" data-i18n="navPortfolio">Portfolio</a>
         <a href="#skills" data-i18n="navSkills">Skills</a>
         <a href="#experience" data-i18n="navExperience">Experience</a>
+        <a href="#private-documents" data-i18n="navPrivateDocuments">Private Documents</a>
         <a href="#contact" data-i18n="navContact">Contact</a>
       </nav>
       <div class="nav-actions">
@@ -1044,10 +1092,35 @@
       </div>
     </section>
 
+    <section class="section" id="private-documents">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="section-kicker" data-i18n="privateKicker">06 / Private Documents</span>
+          <h2 data-i18n="privateTitle">Private Documents</h2>
+        </div>
+        <div class="private-documents-panel">
+          <div>
+            <p class="private-documents-copy" data-i18n="privateText">
+              Some supporting documents are available in a password-protected archive.
+              For security reasons, the content can only be opened with a password provided directly by me.
+            </p>
+            <p class="private-documents-support" data-i18n="privateSupportText">
+              These documents may include certificates, references, or supporting employment and education documentation.
+              Private details are not listed publicly.
+            </p>
+          </div>
+          <div class="private-documents-actions">
+            <a class="button button-dark" href="documents/private-documents.rar" download data-i18n="privateDownload">Download protected documents</a>
+            <p class="private-documents-note" data-i18n="privateNote">If you need access, please contact me to request the password.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="contact-section" id="contact">
       <div class="wrap">
         <div>
-          <span class="section-kicker" data-i18n="contactKicker">06 / Contact</span>
+          <span class="section-kicker" data-i18n="contactKicker">07 / Contact</span>
           <h2 data-i18n="letsConnect">Let&apos;s connect.</h2>
           <p class="contact-copy" data-i18n="contactCopy">
             Open to IT support, systems engineering, cloud administration, cybersecurity, and infrastructure-focused
@@ -1079,6 +1152,7 @@
         navPortfolio: "Portfolio",
         navSkills: "Comp\u00e9tences",
         navExperience: "Exp\u00e9rience",
+        navPrivateDocuments: "Documents priv\u00e9s",
         navContact: "Contact",
         languageLabel: "Langue",
         downloadCv: "T\u00e9l\u00e9charger le CV",
@@ -1164,7 +1238,13 @@
         certAzureFundamentals: "Microsoft Certified: Azure Fundamentals (AZ-900) - Identifiant :",
         verifyLink: "V\u00e9rifier",
         viewCredential: "Voir le titre",
-        contactKicker: "06 / Contact",
+        privateKicker: "06 / Documents priv\u00e9s",
+        privateTitle: "Documents priv\u00e9s",
+        privateText: "Certains documents justificatifs sont disponibles dans une archive prot\u00e9g\u00e9e par mot de passe. Pour des raisons de s\u00e9curit\u00e9, le contenu ne peut \u00eatre ouvert qu'avec un mot de passe fourni directement par moi.",
+        privateSupportText: "Ces documents peuvent inclure des certificats, des r\u00e9f\u00e9rences ou des documents justificatifs li\u00e9s \u00e0 l'emploi et \u00e0 la formation. Les d\u00e9tails priv\u00e9s ne sont pas publi\u00e9s publiquement.",
+        privateDownload: "T\u00e9l\u00e9charger les documents prot\u00e9g\u00e9s",
+        privateNote: "Si vous avez besoin d'un acc\u00e8s, veuillez me contacter pour demander le mot de passe.",
+        contactKicker: "07 / Contact",
         letsConnect: "Communiquons.",
         contactCopy: "Ouvert aux possibilit\u00e9s en soutien TI, ing\u00e9nierie syst\u00e8mes, administration infonuagique, cybers\u00e9curit\u00e9 et infrastructure.",
         contactActions: "Actions de contact",
@@ -1179,6 +1259,7 @@
         navPortfolio: "Portafolio",
         navSkills: "Habilidades",
         navExperience: "Experiencia",
+        navPrivateDocuments: "Documentos privados",
         navContact: "Contacto",
         languageLabel: "Idioma",
         downloadCv: "Descargar CV",
@@ -1264,7 +1345,13 @@
         certAzureFundamentals: "Microsoft Certified: Azure Fundamentals (AZ-900) - ID de credencial:",
         verifyLink: "Verificar",
         viewCredential: "Ver credencial",
-        contactKicker: "06 / Contacto",
+        privateKicker: "06 / Documentos privados",
+        privateTitle: "Documentos privados",
+        privateText: "Algunos documentos de soporte est\u00e1n disponibles en un archivo protegido con contrase\u00f1a. Por seguridad, el contenido solo puede abrirse con una contrase\u00f1a proporcionada directamente por m\u00ed.",
+        privateSupportText: "Estos documentos pueden incluir certificados, referencias o documentaci\u00f3n de soporte laboral y educativo. Los detalles privados no se publican en el sitio.",
+        privateDownload: "Descargar documentos protegidos",
+        privateNote: "Si necesita acceso, por favor cont\u00e1cteme para solicitar la contrase\u00f1a.",
+        contactKicker: "07 / Contacto",
         letsConnect: "Conectemos.",
         contactCopy: "Disponible para oportunidades en soporte TI, ingenier\u00eda de sistemas, administraci\u00f3n en la nube, ciberseguridad e infraestructura.",
         contactActions: "Acciones de contacto",
