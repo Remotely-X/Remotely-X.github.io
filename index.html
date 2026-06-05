@@ -1456,19 +1456,22 @@
         download: "Download",
         checking: "Checking file:",
         available: "Ready to download:",
-        missing: "File not found:"
+        missing: "File not found:",
+        local: "Local file check is unavailable. Click to download:"
       },
       fr: {
         download: "T\u00e9l\u00e9charger",
         checking: "V\u00e9rification du fichier :",
         available: "Pr\u00eat \u00e0 t\u00e9l\u00e9charger :",
-        missing: "Fichier introuvable :"
+        missing: "Fichier introuvable :",
+        local: "La v\u00e9rification locale du fichier n'est pas disponible. Cliquez pour t\u00e9l\u00e9charger :"
       },
       es: {
         download: "Descargar",
         checking: "Verificando archivo:",
         available: "Listo para descargar:",
-        missing: "Archivo no encontrado:"
+        missing: "Archivo no encontrado:",
+        local: "La verificaci\u00f3n local del archivo no est\u00e1 disponible. Haga clic para descargar:"
       }
     };
     const privateDocumentBasePath = "documents/private-documents";
@@ -1557,6 +1560,12 @@
       privateDocumentDownload.setAttribute("download", filename);
       privateDocumentDownload.setAttribute("aria-disabled", "true");
       privateDocumentStatus.textContent = `${text.checking} ${filename}`;
+
+      if (window.location.protocol === "file:") {
+        privateDocumentDownload.setAttribute("aria-disabled", "false");
+        privateDocumentStatus.textContent = `${text.local} ${filename}`;
+        return;
+      }
 
       try {
         const response = await fetch(path, { method: "HEAD", cache: "no-store" });
