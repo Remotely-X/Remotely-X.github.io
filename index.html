@@ -1002,7 +1002,7 @@
         <a href="#portfolio" data-i18n="navPortfolio">Portfolio</a>
         <a href="#skills" data-i18n="navSkills">Skills</a>
         <a href="#experience" data-i18n="navExperience">Experience</a>
-        <a href="#courses-training">Courses and Training</a>
+        <a href="#courses-training" data-i18n="navCoursesTraining">Courses and Training</a>
         <a href="#private-documents" data-i18n="navPrivateDocuments">Private Documents</a>
         <a href="#contact" data-i18n="navContact">Contact</a>
       </nav>
@@ -1272,11 +1272,11 @@
     <section class="section" id="courses-training">
       <div class="wrap">
         <div class="section-head courses-head">
-          <span class="section-kicker">06 / Courses and Training</span>
+          <span class="section-kicker" data-i18n="coursesKicker">06 / Courses and Training</span>
           <div class="courses-heading-copy">
-            <h2>Courses and Training</h2>
-            <p class="courses-total">24 courses completed | 1,050 total training hours</p>
-            <p class="courses-description">
+            <h2 data-i18n="coursesTitle">Courses and Training</h2>
+            <p class="courses-total" data-i18n="coursesTotal">24 courses completed | 1,050 total training hours</p>
+            <p class="courses-description" data-i18n="coursesDescription">
               Continuous learning is at the core of my professional growth. These courses and training experiences have
               strengthened my expertise across IT infrastructure, cloud, cybersecurity, management, administration,
               safety, and development.
@@ -1286,7 +1286,7 @@
         <div class="courses-columns">
           <div class="courses-list">
             <table class="courses-table">
-              <caption class="sr-only">Courses and training completed, first column</caption>
+              <caption class="sr-only" data-i18n="coursesCaptionFirst">Courses and training completed, first column</caption>
               <colgroup>
                 <col class="courses-col-number" />
                 <col />
@@ -1294,9 +1294,9 @@
               </colgroup>
               <thead>
                 <tr>
-                  <th scope="col" aria-label="Number">No.</th>
-                  <th scope="col">Course</th>
-                  <th scope="col">Hours</th>
+                  <th scope="col" aria-label="Number" data-i18n="coursesNoHeader" data-i18n-aria="coursesNumberHeader">No.</th>
+                  <th scope="col" data-i18n="coursesCourseHeader">Course</th>
+                  <th scope="col" data-i18n="coursesHoursHeader">Hours</th>
                 </tr>
               </thead>
               <tbody data-courses-column="0"></tbody>
@@ -1304,7 +1304,7 @@
           </div>
           <div class="courses-list">
             <table class="courses-table">
-              <caption class="sr-only">Courses and training completed, second column</caption>
+              <caption class="sr-only" data-i18n="coursesCaptionSecond">Courses and training completed, second column</caption>
               <colgroup>
                 <col class="courses-col-number" />
                 <col />
@@ -1312,9 +1312,9 @@
               </colgroup>
               <thead>
                 <tr>
-                  <th scope="col" aria-label="Number">No.</th>
-                  <th scope="col">Course</th>
-                  <th scope="col">Hours</th>
+                  <th scope="col" aria-label="Number" data-i18n="coursesNoHeader" data-i18n-aria="coursesNumberHeader">No.</th>
+                  <th scope="col" data-i18n="coursesCourseHeader">Course</th>
+                  <th scope="col" data-i18n="coursesHoursHeader">Hours</th>
                 </tr>
               </thead>
               <tbody data-courses-column="1"></tbody>
@@ -1387,30 +1387,199 @@
   </footer>
   <script>
     const coursesTraining = [
-      { name: "Power BI - Champlain College Saint-Lambert, Business & Industry", hours: "30h", featured: true },
-      { name: "Administrative Assistant", hours: "120h" },
-      { name: "Administrative Saint Plus 7.5", hours: "20h" },
-      { name: "Assembly Mechanic", hours: "40h" },
-      { name: "Basic SAP and Materials Research", hours: "16h" },
-      { name: "Computer Operator", hours: "20h" },
-      { name: "Contract Administration", hours: "16h" },
-      { name: "Cooperatives", hours: "50h" },
-      { name: "E&P for Non-Oil Professionals", hours: "40h" },
-      { name: "Educational Software Development and Programming", hours: "126h" },
-      { name: "Engineering Basic Non-Oil Tankers", hours: "40h" },
-      { name: "Facilitator", hours: "10h" },
-      { name: "Industrial Hygiene and Safety", hours: "120h" },
-      { name: "Installation and Configuration of Knoppix 3.7c and Linux Networks", hours: "40h" },
-      { name: "Legal Bases of Public Contracts and Preparation of the Perimeter", hours: "24h" },
-      { name: "Project Management", hours: "24h" },
-      { name: "Project Planning and Control Using MS Project", hours: "40h" },
-      { name: "Repair and Computer Maintenance", hours: "40h" },
-      { name: "Respiratory Protection Administrative Program", hours: "10h" },
-      { name: "Scaffolding", hours: "30h" },
-      { name: "Scenario Development for Educational Software Development", hours: "136h" },
-      { name: "Technical Report Writing", hours: "16h" },
-      { name: "Tutor Training", hours: "12h" },
-      { name: "Visual Basic Language", hours: "30h" }
+      {
+        name: {
+          en: "Power BI - Champlain College Saint-Lambert, Business & Industry",
+          fr: "Power BI - Champlain College Saint-Lambert, affaires et industrie",
+          es: "Power BI - Champlain College Saint-Lambert, negocios e industria"
+        },
+        hours: "30h",
+        featured: true
+      },
+      {
+        name: {
+          en: "Administrative Assistant",
+          fr: "Adjoint administratif",
+          es: "Asistente administrativo"
+        },
+        hours: "120h"
+      },
+      {
+        name: {
+          en: "Administrative Saint Plus 7.5",
+          fr: "Administration avec Saint Plus 7.5",
+          es: "Administraci\u00f3n con Saint Plus 7.5"
+        },
+        hours: "20h"
+      },
+      {
+        name: {
+          en: "Assembly Mechanic",
+          fr: "M\u00e9canique d'assemblage",
+          es: "Mec\u00e1nica de ensamblaje"
+        },
+        hours: "40h"
+      },
+      {
+        name: {
+          en: "Basic SAP and Materials Research",
+          fr: "SAP de base et recherche de mat\u00e9riaux",
+          es: "SAP b\u00e1sico e investigaci\u00f3n de materiales"
+        },
+        hours: "16h"
+      },
+      {
+        name: {
+          en: "Computer Operator",
+          fr: "Op\u00e9rateur informatique",
+          es: "Operador de computadoras"
+        },
+        hours: "20h"
+      },
+      {
+        name: {
+          en: "Contract Administration",
+          fr: "Administration des contrats",
+          es: "Administraci\u00f3n de contratos"
+        },
+        hours: "16h"
+      },
+      {
+        name: {
+          en: "Cooperatives",
+          fr: "Coop\u00e9ratives",
+          es: "Cooperativas"
+        },
+        hours: "50h"
+      },
+      {
+        name: {
+          en: "E&P for Non-Oil Professionals",
+          fr: "E&P pour professionnels non p\u00e9troliers",
+          es: "E&P para profesionales no petroleros"
+        },
+        hours: "40h"
+      },
+      {
+        name: {
+          en: "Educational Software Development and Programming",
+          fr: "D\u00e9veloppement et programmation de logiciels \u00e9ducatifs",
+          es: "Desarrollo y programaci\u00f3n de software educativo"
+        },
+        hours: "126h"
+      },
+      {
+        name: {
+          en: "Engineering Basic Non-Oil Tankers",
+          fr: "Bases d'ing\u00e9nierie pour navires-citernes non p\u00e9troliers",
+          es: "Fundamentos de ingenier\u00eda para tanqueros no petroleros"
+        },
+        hours: "40h"
+      },
+      {
+        name: {
+          en: "Facilitator",
+          fr: "Facilitateur",
+          es: "Facilitador"
+        },
+        hours: "10h"
+      },
+      {
+        name: {
+          en: "Industrial Hygiene and Safety",
+          fr: "Hygi\u00e8ne et s\u00e9curit\u00e9 industrielles",
+          es: "Higiene y seguridad industrial"
+        },
+        hours: "120h"
+      },
+      {
+        name: {
+          en: "Installation and Configuration of Knoppix 3.7c and Linux Networks",
+          fr: "Installation et configuration de Knoppix 3.7c et de r\u00e9seaux Linux",
+          es: "Instalaci\u00f3n y configuraci\u00f3n de Knoppix 3.7c y redes Linux"
+        },
+        hours: "40h"
+      },
+      {
+        name: {
+          en: "Legal Bases of Public Contracts and Preparation of the Perimeter",
+          fr: "Bases juridiques des contrats publics et pr\u00e9paration du p\u00e9rim\u00e8tre",
+          es: "Bases legales de los contratos p\u00fablicos y preparaci\u00f3n del per\u00edmetro"
+        },
+        hours: "24h"
+      },
+      {
+        name: {
+          en: "Project Management",
+          fr: "Gestion de projet",
+          es: "Gesti\u00f3n de proyectos"
+        },
+        hours: "24h"
+      },
+      {
+        name: {
+          en: "Project Planning and Control Using MS Project",
+          fr: "Planification et contr\u00f4le de projets avec MS Project",
+          es: "Planificaci\u00f3n y control de proyectos con MS Project"
+        },
+        hours: "40h"
+      },
+      {
+        name: {
+          en: "Repair and Computer Maintenance",
+          fr: "R\u00e9paration et maintenance informatique",
+          es: "Reparaci\u00f3n y mantenimiento de computadoras"
+        },
+        hours: "40h"
+      },
+      {
+        name: {
+          en: "Respiratory Protection Administrative Program",
+          fr: "Programme administratif de protection respiratoire",
+          es: "Programa administrativo de protecci\u00f3n respiratoria"
+        },
+        hours: "10h"
+      },
+      {
+        name: {
+          en: "Scaffolding",
+          fr: "\u00c9chafaudage",
+          es: "Andamios"
+        },
+        hours: "30h"
+      },
+      {
+        name: {
+          en: "Scenario Development for Educational Software Development",
+          fr: "\u00c9laboration de sc\u00e9narios pour le d\u00e9veloppement de logiciels \u00e9ducatifs",
+          es: "Desarrollo de escenarios para software educativo"
+        },
+        hours: "136h"
+      },
+      {
+        name: {
+          en: "Technical Report Writing",
+          fr: "R\u00e9daction de rapports techniques",
+          es: "Redacci\u00f3n de informes t\u00e9cnicos"
+        },
+        hours: "16h"
+      },
+      {
+        name: {
+          en: "Tutor Training",
+          fr: "Formation de tuteurs",
+          es: "Formaci\u00f3n de tutores"
+        },
+        hours: "12h"
+      },
+      {
+        name: {
+          en: "Visual Basic Language",
+          fr: "Langage Visual Basic",
+          es: "Lenguaje Visual Basic"
+        },
+        hours: "30h"
+      }
     ];
 
     const translations = {
@@ -1423,6 +1592,7 @@
         navPortfolio: "Portfolio",
         navSkills: "Comp\u00e9tences",
         navExperience: "Exp\u00e9rience",
+        navCoursesTraining: "Cours et formations",
         navPrivateDocuments: "Documents priv\u00e9s",
         navContact: "Contact",
         languageLabel: "Langue",
@@ -1509,6 +1679,16 @@
         certAzureFundamentals: "Microsoft Certified: Azure Fundamentals (AZ-900) - Identifiant :",
         verifyLink: "V\u00e9rifier",
         viewCredential: "Voir le titre",
+        coursesKicker: "06 / Cours et formations",
+        coursesTitle: "Cours et formations",
+        coursesTotal: "24 cours termin\u00e9s | 1 050 heures de formation",
+        coursesDescription: "L'apprentissage continu est au coeur de ma croissance professionnelle. Ces cours et formations ont renforc\u00e9 mon expertise en infrastructure TI, infonuagique, cybers\u00e9curit\u00e9, gestion, administration, s\u00e9curit\u00e9 et d\u00e9veloppement.",
+        coursesCaptionFirst: "Cours et formations termin\u00e9s, premi\u00e8re colonne",
+        coursesCaptionSecond: "Cours et formations termin\u00e9s, deuxi\u00e8me colonne",
+        coursesNoHeader: "No.",
+        coursesNumberHeader: "Num\u00e9ro",
+        coursesCourseHeader: "Cours",
+        coursesHoursHeader: "Heures",
         privateKicker: "07 / Documents priv\u00e9s",
         privateTitle: "Documents priv\u00e9s",
         privateText: "Certains documents justificatifs sont disponibles dans une archive prot\u00e9g\u00e9e par mot de passe. Pour des raisons de s\u00e9curit\u00e9, le contenu ne peut \u00eatre ouvert qu'avec un mot de passe fourni directement par moi.",
@@ -1538,6 +1718,7 @@
         navPortfolio: "Portafolio",
         navSkills: "Habilidades",
         navExperience: "Experiencia",
+        navCoursesTraining: "Cursos y formaci\u00f3n",
         navPrivateDocuments: "Documentos privados",
         navContact: "Contacto",
         languageLabel: "Idioma",
@@ -1624,6 +1805,16 @@
         certAzureFundamentals: "Microsoft Certified: Azure Fundamentals (AZ-900) - ID de credencial:",
         verifyLink: "Verificar",
         viewCredential: "Ver credencial",
+        coursesKicker: "06 / Cursos y formaci\u00f3n",
+        coursesTitle: "Cursos y formaci\u00f3n",
+        coursesTotal: "24 cursos completados | 1,050 horas totales de formaci\u00f3n",
+        coursesDescription: "El aprendizaje continuo es parte central de mi crecimiento profesional. Estos cursos y experiencias de formaci\u00f3n han fortalecido mi experiencia en infraestructura TI, nube, ciberseguridad, gesti\u00f3n, administraci\u00f3n, seguridad y desarrollo.",
+        coursesCaptionFirst: "Cursos y formaci\u00f3n completados, primera columna",
+        coursesCaptionSecond: "Cursos y formaci\u00f3n completados, segunda columna",
+        coursesNoHeader: "No.",
+        coursesNumberHeader: "N\u00famero",
+        coursesCourseHeader: "Curso",
+        coursesHoursHeader: "Horas",
         privateKicker: "07 / Documentos privados",
         privateTitle: "Documentos privados",
         privateText: "Algunos documentos de soporte est\u00e1n disponibles en un archivo protegido con contrase\u00f1a. Por seguridad, el contenido solo puede abrirse con una contrase\u00f1a proporcionada directamente por m\u00ed.",
@@ -1726,7 +1917,7 @@
 
           const courseCell = document.createElement("td");
           courseCell.className = "course-name";
-          courseCell.textContent = course.name;
+          courseCell.textContent = course.name[currentLanguage] || course.name.en;
 
           const hoursCell = document.createElement("td");
           hoursCell.className = "course-hours";
@@ -1782,6 +1973,7 @@
         element.setAttribute("alt", dictionary[key] || altDefaults.get(element));
       });
 
+      renderCoursesTraining();
       languageSelect.value = language;
       updatePrivateDocumentDownload();
       try {
@@ -1866,7 +2058,6 @@
       });
     }
 
-    renderCoursesTraining();
     translatePage(initialLanguage);
   </script>
 </body>
