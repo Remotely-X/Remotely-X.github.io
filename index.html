@@ -585,6 +585,108 @@
       padding-right: 4px;
     }
 
+    .courses-head {
+      align-items: start;
+    }
+
+    .courses-heading-copy {
+      max-width: 920px;
+      margin: 0;
+      text-align: left;
+    }
+
+    .courses-heading-copy h2 {
+      max-width: none;
+    }
+
+    .courses-total {
+      margin: 18px 0 0;
+      color: var(--ink);
+      font-size: 1.04rem;
+      font-weight: 500;
+    }
+
+    .courses-description {
+      max-width: 720px;
+      margin: 24px 0 0;
+      color: #3f3f3b;
+    }
+
+    .courses-columns {
+      max-width: none;
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: clamp(34px, 5vw, 72px);
+      align-items: start;
+    }
+
+    .courses-list {
+      border-top: 1px solid var(--ink);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .courses-table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+    }
+
+    .courses-col-number {
+      width: 56px;
+    }
+
+    .courses-col-hours {
+      width: 74px;
+    }
+
+    .courses-table th,
+    .courses-table td {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+      text-align: left;
+    }
+
+    .courses-table th {
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .courses-table th:last-child,
+    .courses-table td:last-child {
+      text-align: right;
+    }
+
+    .courses-table tbody tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .course-number {
+      color: var(--muted);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .course-name {
+      padding-right: 24px;
+    }
+
+    .course-hours {
+      color: var(--ink);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .course-featured .course-number,
+    .course-featured .course-name,
+    .course-featured .course-hours {
+      color: var(--ink);
+      font-weight: 750;
+    }
+
     .verify-link {
       display: inline-block;
       margin-left: 8px;
@@ -765,6 +867,11 @@
         grid-template-columns: 1fr;
       }
 
+      .courses-heading-copy {
+        margin: 0;
+        text-align: left;
+      }
+
       .project-row,
       .timeline-item {
         grid-template-columns: 1fr;
@@ -773,6 +880,12 @@
 
       .skills-board {
         grid-template-columns: 1fr;
+      }
+
+      .courses-columns {
+        max-width: none;
+        grid-template-columns: 1fr;
+        gap: 38px;
       }
 
       .skill-group,
@@ -828,6 +941,28 @@
         width: 100%;
       }
 
+      .courses-table th,
+      .courses-table td {
+        padding: 13px 0;
+        font-size: 0.92rem;
+      }
+
+      .courses-table th {
+        font-size: 0.7rem;
+      }
+
+      .courses-col-number {
+        width: 46px;
+      }
+
+      .courses-col-hours {
+        width: 64px;
+      }
+
+      .course-name {
+        padding-right: 12px;
+      }
+
       .detail-list li {
         grid-template-columns: 1fr;
         gap: 4px;
@@ -867,6 +1002,7 @@
         <a href="#portfolio" data-i18n="navPortfolio">Portfolio</a>
         <a href="#skills" data-i18n="navSkills">Skills</a>
         <a href="#experience" data-i18n="navExperience">Experience</a>
+        <a href="#courses-training">Courses and Training</a>
         <a href="#private-documents" data-i18n="navPrivateDocuments">Private Documents</a>
         <a href="#contact" data-i18n="navContact">Contact</a>
       </nav>
@@ -1133,10 +1269,65 @@
       </div>
     </section>
 
+    <section class="section" id="courses-training">
+      <div class="wrap">
+        <div class="section-head courses-head">
+          <span class="section-kicker">06 / Courses and Training</span>
+          <div class="courses-heading-copy">
+            <h2>Courses and Training</h2>
+            <p class="courses-total">24 courses completed | 1,050 total training hours</p>
+            <p class="courses-description">
+              Continuous learning is at the core of my professional growth. These courses and training experiences have
+              strengthened my expertise across IT infrastructure, cloud, cybersecurity, management, administration,
+              safety, and development.
+            </p>
+          </div>
+        </div>
+        <div class="courses-columns">
+          <div class="courses-list">
+            <table class="courses-table">
+              <caption class="sr-only">Courses and training completed, first column</caption>
+              <colgroup>
+                <col class="courses-col-number" />
+                <col />
+                <col class="courses-col-hours" />
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col" aria-label="Number">No.</th>
+                  <th scope="col">Course</th>
+                  <th scope="col">Hours</th>
+                </tr>
+              </thead>
+              <tbody data-courses-column="0"></tbody>
+            </table>
+          </div>
+          <div class="courses-list">
+            <table class="courses-table">
+              <caption class="sr-only">Courses and training completed, second column</caption>
+              <colgroup>
+                <col class="courses-col-number" />
+                <col />
+                <col class="courses-col-hours" />
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col" aria-label="Number">No.</th>
+                  <th scope="col">Course</th>
+                  <th scope="col">Hours</th>
+                </tr>
+              </thead>
+              <tbody data-courses-column="1"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section" id="private-documents">
       <div class="wrap">
         <div class="section-head">
-          <span class="section-kicker" data-i18n="privateKicker">06 / Private Documents</span>
+          <span class="section-kicker" data-i18n="privateKicker">07 / Private Documents</span>
           <h2 data-i18n="privateTitle">Private Documents</h2>
         </div>
         <div class="private-documents-panel">
@@ -1173,7 +1364,7 @@
     <section class="contact-section" id="contact">
       <div class="wrap">
         <div>
-          <span class="section-kicker" data-i18n="contactKicker">07 / Contact</span>
+          <span class="section-kicker" data-i18n="contactKicker">08 / Contact</span>
           <h2 data-i18n="letsConnect">Let&apos;s connect.</h2>
           <p class="contact-copy" data-i18n="contactCopy">
             Open to IT support, systems engineering, cloud administration, cybersecurity, and infrastructure-focused
@@ -1195,6 +1386,33 @@
     </div>
   </footer>
   <script>
+    const coursesTraining = [
+      { name: "Power BI - Champlain College Saint-Lambert, Business & Industry", hours: "30h", featured: true },
+      { name: "Administrative Assistant", hours: "120h" },
+      { name: "Administrative Saint Plus 7.5", hours: "20h" },
+      { name: "Assembly Mechanic", hours: "40h" },
+      { name: "Basic SAP and Materials Research", hours: "16h" },
+      { name: "Computer Operator", hours: "20h" },
+      { name: "Contract Administration", hours: "16h" },
+      { name: "Cooperatives", hours: "50h" },
+      { name: "E&P for Non-Oil Professionals", hours: "40h" },
+      { name: "Educational Software Development and Programming", hours: "126h" },
+      { name: "Engineering Basic Non-Oil Tankers", hours: "40h" },
+      { name: "Facilitator", hours: "10h" },
+      { name: "Industrial Hygiene and Safety", hours: "120h" },
+      { name: "Installation and Configuration of Knoppix 3.7c and Linux Networks", hours: "40h" },
+      { name: "Legal Bases of Public Contracts and Preparation of the Perimeter", hours: "24h" },
+      { name: "Project Management", hours: "24h" },
+      { name: "Project Planning and Control Using MS Project", hours: "40h" },
+      { name: "Repair and Computer Maintenance", hours: "40h" },
+      { name: "Respiratory Protection Administrative Program", hours: "10h" },
+      { name: "Scaffolding", hours: "30h" },
+      { name: "Scenario Development for Educational Software Development", hours: "136h" },
+      { name: "Technical Report Writing", hours: "16h" },
+      { name: "Tutor Training", hours: "12h" },
+      { name: "Visual Basic Language", hours: "30h" }
+    ];
+
     const translations = {
       fr: {
         skipLink: "Passer au contenu principal",
@@ -1291,7 +1509,7 @@
         certAzureFundamentals: "Microsoft Certified: Azure Fundamentals (AZ-900) - Identifiant :",
         verifyLink: "V\u00e9rifier",
         viewCredential: "Voir le titre",
-        privateKicker: "06 / Documents priv\u00e9s",
+        privateKicker: "07 / Documents priv\u00e9s",
         privateTitle: "Documents priv\u00e9s",
         privateText: "Certains documents justificatifs sont disponibles dans une archive prot\u00e9g\u00e9e par mot de passe. Pour des raisons de s\u00e9curit\u00e9, le contenu ne peut \u00eatre ouvert qu'avec un mot de passe fourni directement par moi.",
         privateSupportText: "Ces documents peuvent inclure des certificats, des r\u00e9f\u00e9rences ou des documents justificatifs li\u00e9s \u00e0 l'emploi et \u00e0 la formation. Les d\u00e9tails priv\u00e9s ne sont pas publi\u00e9s publiquement.",
@@ -1305,7 +1523,7 @@
         privateSpatistics: "Spatistics",
         privateContracts: "Contrats",
         privateNote: "Si vous avez besoin d'un acc\u00e8s, veuillez me contacter pour demander le mot de passe.",
-        contactKicker: "07 / Contact",
+        contactKicker: "08 / Contact",
         letsConnect: "Communiquons.",
         contactCopy: "Ouvert aux possibilit\u00e9s en soutien TI, ing\u00e9nierie syst\u00e8mes, administration infonuagique, cybers\u00e9curit\u00e9 et infrastructure.",
         contactActions: "Actions de contact",
@@ -1406,7 +1624,7 @@
         certAzureFundamentals: "Microsoft Certified: Azure Fundamentals (AZ-900) - ID de credencial:",
         verifyLink: "Verificar",
         viewCredential: "Ver credencial",
-        privateKicker: "06 / Documentos privados",
+        privateKicker: "07 / Documentos privados",
         privateTitle: "Documentos privados",
         privateText: "Algunos documentos de soporte est\u00e1n disponibles en un archivo protegido con contrase\u00f1a. Por seguridad, el contenido solo puede abrirse con una contrase\u00f1a proporcionada directamente por m\u00ed.",
         privateSupportText: "Estos documentos pueden incluir certificados, referencias o documentaci\u00f3n de soporte laboral y educativo. Los detalles privados no se publican en el sitio.",
@@ -1420,7 +1638,7 @@
         privateSpatistics: "Spatistics",
         privateContracts: "Contratos",
         privateNote: "Si necesita acceso, por favor cont\u00e1cteme para solicitar la contrase\u00f1a.",
-        contactKicker: "07 / Contacto",
+        contactKicker: "08 / Contacto",
         letsConnect: "Conectemos.",
         contactCopy: "Disponible para oportunidades en soporte TI, ingenier\u00eda de sistemas, administraci\u00f3n en la nube, ciberseguridad e infraestructura.",
         contactActions: "Acciones de contacto",
@@ -1479,9 +1697,48 @@
     const privateDocumentSelect = document.getElementById("private-document-category");
     const privateDocumentDownload = document.getElementById("private-document-download");
     const privateDocumentStatus = document.getElementById("private-document-status");
+    const coursesTrainingColumns = document.querySelectorAll("[data-courses-column]");
     const descriptionMeta = document.querySelector('meta[name="description"]');
     let currentLanguage = "en";
     let privateDocumentCheckId = 0;
+
+    function renderCoursesTraining() {
+      if (!coursesTrainingColumns.length) {
+        return;
+      }
+
+      const midpoint = Math.ceil(coursesTraining.length / coursesTrainingColumns.length);
+
+      coursesTrainingColumns.forEach((column, columnIndex) => {
+        const rows = document.createDocumentFragment();
+        const start = columnIndex * midpoint;
+        const columnCourses = coursesTraining.slice(start, start + midpoint);
+
+        columnCourses.forEach((course, index) => {
+          const row = document.createElement("tr");
+          if (course.featured) {
+            row.classList.add("course-featured");
+          }
+
+          const numberCell = document.createElement("td");
+          numberCell.className = "course-number";
+          numberCell.textContent = String(start + index + 1).padStart(2, "0");
+
+          const courseCell = document.createElement("td");
+          courseCell.className = "course-name";
+          courseCell.textContent = course.name;
+
+          const hoursCell = document.createElement("td");
+          hoursCell.className = "course-hours";
+          hoursCell.textContent = course.hours;
+
+          row.append(numberCell, courseCell, hoursCell);
+          rows.append(row);
+        });
+
+        column.replaceChildren(rows);
+      });
+    }
 
     document.querySelectorAll("[data-i18n]").forEach((element) => {
       textDefaults.set(element, element.textContent.trim());
@@ -1609,6 +1866,7 @@
       });
     }
 
+    renderCoursesTraining();
     translatePage(initialLanguage);
   </script>
 </body>
