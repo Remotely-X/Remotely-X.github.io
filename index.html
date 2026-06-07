@@ -585,6 +585,75 @@
       padding-right: 4px;
     }
 
+    .academic-projects {
+      margin-top: 64px;
+      padding-top: 30px;
+      border-top: 1px solid var(--line);
+    }
+
+    .academic-projects h3 {
+      margin: 0;
+      font-size: 1.45rem;
+      font-weight: 450;
+      line-height: 1.18;
+    }
+
+    .academic-projects-intro {
+      max-width: 680px;
+      margin: 14px 0 24px;
+      color: #3f3f3b;
+    }
+
+    .academic-projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .academic-project-card {
+      display: grid;
+      grid-template-columns: 58px minmax(0, 1fr);
+      gap: 22px;
+      align-items: start;
+      min-height: 230px;
+      padding: 28px;
+      border: 1px solid var(--soft);
+      background: transparent;
+    }
+
+    .academic-icon {
+      width: 46px;
+      height: 46px;
+      color: var(--ink);
+    }
+
+    .academic-icon svg {
+      width: 100%;
+      height: 100%;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+    }
+
+    .academic-project-card h4 {
+      margin: 0;
+      font-size: 1.05rem;
+      font-weight: 700;
+      line-height: 1.28;
+    }
+
+    .academic-project-card p {
+      margin: 14px 0 24px;
+      color: #3f3f3b;
+    }
+
+    .academic-project-card .button {
+      min-height: 42px;
+      padding: 10px 16px;
+    }
+
     .courses-head {
       align-items: start;
     }
@@ -882,6 +951,10 @@
         grid-template-columns: 1fr;
       }
 
+      .academic-projects-grid {
+        grid-template-columns: 1fr;
+      }
+
       .courses-columns {
         max-width: none;
         grid-template-columns: 1fr;
@@ -949,6 +1022,13 @@
 
       .courses-table th {
         font-size: 0.7rem;
+      }
+
+      .academic-project-card {
+        grid-template-columns: 46px minmax(0, 1fr);
+        gap: 16px;
+        min-height: 0;
+        padding: 22px;
       }
 
       .courses-col-number {
@@ -1264,6 +1344,81 @@
               <li><span data-i18n="certAzureFundamentals">Microsoft Certified: Azure Fundamentals (AZ-900) - Credential ID:</span> 561978C307D42ED3 <a class="verify-link" href="https://learn.microsoft.com/api/credentials/share/en-ca/FranklynJoseVasquez-9292/561978C307D42ED3?sharingId=A079B541BBC71D75" target="_blank" rel="noopener noreferrer"><span data-i18n="viewCredential">View credential</span> &#8599;</a></li>
             </ul>
           </article>
+        </div>
+        <div class="academic-projects" aria-labelledby="academic-projects-title">
+          <h3 id="academic-projects-title" data-i18n="academicProjectsTitle">Academic Software Projects</h3>
+          <p class="academic-projects-intro" data-i18n="academicProjectsIntro">
+            University presentations and academic documents developed as part of my studies. These projects demonstrate
+            my skills in systems analysis, software development, databases, and IT solutions.
+          </p>
+          <div class="academic-projects-grid">
+            <article class="academic-project-card">
+              <div class="academic-icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48">
+                  <path d="M7 23 24 9l17 14" />
+                  <path d="M12 21v18h14" />
+                  <path d="M36 21v8" />
+                  <path d="M18 27h6v6h-6z" />
+                  <path d="M30 30v6a4 4 0 0 0 8 0v-6" />
+                  <path d="M34 40v4" />
+                  <path d="M30 44h8" />
+                  <path d="M41 31c2 2 2 5 0 7" />
+                  <path d="M44 28c4 4 4 10 0 14" />
+                </svg>
+              </div>
+              <div>
+                <h4 data-i18n="academicHomeTitle">Home Automation System (Voice Recognition)</h4>
+                <p data-i18n="academicHomeDescription">
+                  Presentation about a home automation system that allows controlling electrical appliances through voice recognition.
+                </p>
+                <a class="button" href="documents/Academic-Software-Project/Franklyn_Vasquez_Home_Automation_Voice_Recognition.pdf" target="_blank" rel="noopener noreferrer"><span data-i18n="viewPdf">View PDF</span> &#8599;</a>
+              </div>
+            </article>
+            <article class="academic-project-card">
+              <div class="academic-icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48">
+                  <path d="M17 10h14" />
+                  <path d="M19 7h10l2 6H17z" />
+                  <path d="M13 12h-2a3 3 0 0 0-3 3v25a3 3 0 0 0 3 3h26a3 3 0 0 0 3-3V15a3 3 0 0 0-3-3h-2" />
+                  <path d="M15 22h10" />
+                  <path d="M15 29h8" />
+                  <path d="M15 36h7" />
+                  <path d="M29 36v-8" />
+                  <path d="M34 36V24" />
+                  <path d="M39 36v-5" />
+                </svg>
+              </div>
+              <div>
+                <h4 data-i18n="academicEvaluationTitle">Information System for Academic Evaluation Department</h4>
+                <p data-i18n="academicEvaluationDescription">
+                  Presentation about an information system designed to manage student records, grades, and academic evaluation processes.
+                </p>
+                <a class="button" href="documents/Academic-Software-Project/Franklyn_Vasquez_Academic_Evaluation_Information_System.pdf" target="_blank" rel="noopener noreferrer"><span data-i18n="viewPdf">View PDF</span> &#8599;</a>
+              </div>
+            </article>
+            <article class="academic-project-card">
+              <div class="academic-icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48">
+                  <path d="M7 24 24 10l17 14" />
+                  <path d="M12 22v18h14" />
+                  <path d="M36 22v9" />
+                  <path d="M22 28c-5 2-7 6-5 11 5 0 9-4 9-9" />
+                  <path d="m20 39 5-8" />
+                  <path d="M35 7 30 20h7l-4 10 10-16h-7l4-7z" />
+                  <path d="M32 38h10" />
+                  <path d="M34 34v8" />
+                  <path d="M40 34v8" />
+                </svg>
+              </div>
+              <div>
+                <h4 data-i18n="academicEnergyTitle">Smart Home System (Energy Saving)</h4>
+                <p data-i18n="academicEnergyDescription">
+                  Presentation about a smart control system for energy saving in homes using intelligent switches and management software.
+                </p>
+                <a class="button" href="documents/Academic-Software-Project/Franklyn_Vasquez_Smart_Home_Energy_Saving_User_Manual.pdf" target="_blank" rel="noopener noreferrer"><span data-i18n="viewPdf">View PDF</span> &#8599;</a>
+              </div>
+            </article>
+          </div>
         </div>
       </div>
     </section>
@@ -1678,6 +1833,15 @@
         certAzureFundamentals: "Microsoft Certified: Azure Fundamentals (AZ-900) - Identifiant :",
         verifyLink: "V\u00e9rifier",
         viewCredential: "Voir le titre",
+        academicProjectsTitle: "Projets logiciels acad\u00e9miques",
+        academicProjectsIntro: "Pr\u00e9sentations universitaires et documents acad\u00e9miques r\u00e9alis\u00e9s dans le cadre de mes \u00e9tudes. Ces projets d\u00e9montrent mes comp\u00e9tences en analyse de syst\u00e8mes, d\u00e9veloppement logiciel, bases de donn\u00e9es et solutions TI.",
+        academicHomeTitle: "Syst\u00e8me domotique (reconnaissance vocale)",
+        academicHomeDescription: "Pr\u00e9sentation d'un syst\u00e8me domotique permettant de contr\u00f4ler des appareils \u00e9lectriques par reconnaissance vocale.",
+        academicEvaluationTitle: "Syst\u00e8me d'information pour le service d'\u00e9valuation acad\u00e9mique",
+        academicEvaluationDescription: "Pr\u00e9sentation d'un syst\u00e8me d'information con\u00e7u pour g\u00e9rer les dossiers \u00e9tudiants, les notes et les processus d'\u00e9valuation acad\u00e9mique.",
+        academicEnergyTitle: "Syst\u00e8me de maison intelligente (\u00e9conomie d'\u00e9nergie)",
+        academicEnergyDescription: "Pr\u00e9sentation d'un syst\u00e8me de contr\u00f4le intelligent pour l'\u00e9conomie d'\u00e9nergie dans les maisons au moyen d'interrupteurs intelligents et d'un logiciel de gestion.",
+        viewPdf: "Voir le PDF",
         coursesKicker: "06 / Cours et formations",
         coursesTitle: "Cours et formations",
         coursesTotal: "24 cours termin\u00e9s | 1 050 heures de formation",
@@ -1804,6 +1968,15 @@
         certAzureFundamentals: "Microsoft Certified: Azure Fundamentals (AZ-900) - ID de credencial:",
         verifyLink: "Verificar",
         viewCredential: "Ver credencial",
+        academicProjectsTitle: "Proyectos acad\u00e9micos de software",
+        academicProjectsIntro: "Presentaciones universitarias y documentos acad\u00e9micos desarrollados como parte de mis estudios. Estos proyectos demuestran mis habilidades en an\u00e1lisis de sistemas, desarrollo de software, bases de datos y soluciones TI.",
+        academicHomeTitle: "Sistema de automatizaci\u00f3n del hogar (reconocimiento de voz)",
+        academicHomeDescription: "Presentaci\u00f3n sobre un sistema de automatizaci\u00f3n del hogar que permite controlar aparatos el\u00e9ctricos mediante reconocimiento de voz.",
+        academicEvaluationTitle: "Sistema de informaci\u00f3n para el departamento de evaluaci\u00f3n acad\u00e9mica",
+        academicEvaluationDescription: "Presentaci\u00f3n sobre un sistema de informaci\u00f3n dise\u00f1ado para gestionar registros estudiantiles, calificaciones y procesos de evaluaci\u00f3n acad\u00e9mica.",
+        academicEnergyTitle: "Sistema de hogar inteligente (ahorro de energ\u00eda)",
+        academicEnergyDescription: "Presentaci\u00f3n sobre un sistema de control inteligente para el ahorro de energ\u00eda en hogares mediante interruptores inteligentes y software de gesti\u00f3n.",
+        viewPdf: "Ver PDF",
         coursesKicker: "06 / Cursos y formaci\u00f3n",
         coursesTitle: "Cursos y formaci\u00f3n",
         coursesTotal: "24 cursos completados | 1,050 horas totales de formaci\u00f3n",
