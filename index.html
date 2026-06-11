@@ -281,6 +281,14 @@
       margin-top: 34px;
     }
 
+    .cv-privacy-note {
+      max-width: 560px;
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.55;
+    }
+
     .button {
       display: inline-flex;
       min-height: 48px;
@@ -397,6 +405,18 @@
 
     .detail-list span {
       color: var(--muted);
+    }
+
+    .detail-list .detail-value {
+      display: grid;
+      gap: 6px;
+    }
+
+    .detail-list .detail-note {
+      display: block;
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.55;
     }
 
     .portfolio-list,
@@ -885,6 +905,20 @@
       justify-content: flex-end;
     }
 
+    .contact-actions-group {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 14px;
+    }
+
+    .contact-actions-group .cv-privacy-note {
+      max-width: 440px;
+      margin: 0;
+      color: #bcbcb5;
+      text-align: right;
+    }
+
     .contact-section .button {
       border-color: #fff;
       color: #fff;
@@ -1057,6 +1091,14 @@
         justify-content: flex-start;
       }
 
+      .contact-actions-group {
+        align-items: flex-start;
+      }
+
+      .contact-actions-group .cv-privacy-note {
+        text-align: left;
+      }
+
       .private-documents-actions {
         align-items: stretch;
       }
@@ -1154,7 +1196,6 @@
       "name": "Franklyn Jose Vasquez Marin",
       "jobTitle": "Systems Engineer",
       "email": "mailto:vasquezfu@gmail.com",
-      "telephone": "+1-438-402-2044",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Longueuil",
@@ -1232,6 +1273,9 @@
             <a class="button" href="https://www.linkedin.com/in/franklynvasquez/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             <a class="button" href="https://github.com/Remotely-X" target="_blank" rel="noopener noreferrer">GitHub</a>
           </div>
+          <p class="cv-privacy-note" data-i18n="cvPrivacyNote">
+            For privacy and security, public CV downloads include email contact only. Phone contact can be provided upon request.
+          </p>
         </div>
 
         <figure class="hero-portrait">
@@ -1256,7 +1300,12 @@
           </p>
           <ul class="detail-list" aria-label="Contact details" data-i18n-aria="contactDetails">
             <li><span data-i18n="emailLabel">Email</span><a href="mailto:vasquezfu@gmail.com">vasquezfu@gmail.com</a></li>
-            <li><span data-i18n="phoneLabel">Phone</span><a href="tel:+14384022044">(438) 402-2044</a></li>
+            <li>
+              <span data-i18n="phoneLabel">Phone</span>
+              <span class="detail-value">
+                <small class="detail-note" data-i18n="cvPrivacyNote">For privacy and security, public CV downloads include email contact only. Phone contact can be provided upon request.</small>
+              </span>
+            </li>
             <li><span data-i18n="locationLabel">Location</span><span data-i18n="location">Longueuil, Quebec, Canada</span></li>
             <li><span data-i18n="languagesLabel">Languages</span><span data-i18n="languagesValue">Spanish native, English fluent, French basic</span></li>
           </ul>
@@ -1708,9 +1757,14 @@
             opportunities.
           </p>
         </div>
-        <div class="contact-links" aria-label="Contact actions" data-i18n-aria="contactActions">
-          <a class="button button-dark" href="mailto:vasquezfu@gmail.com" data-i18n="emailMe">Email Me</a>
-          <a class="button" href="Franklyn_Vasquez_CV_EN.pdf" download data-cv-download data-i18n="downloadCv">Download CV</a>
+        <div class="contact-actions-group">
+          <div class="contact-links" aria-label="Contact actions" data-i18n-aria="contactActions">
+            <a class="button button-dark" href="mailto:vasquezfu@gmail.com" data-i18n="emailMe">Email Me</a>
+            <a class="button" href="Franklyn_Vasquez_CV_EN.pdf" download data-cv-download data-i18n="downloadCv">Download CV</a>
+          </div>
+          <p class="cv-privacy-note" data-i18n="cvPrivacyNote">
+            For privacy and security, public CV downloads include email contact only. Phone contact can be provided upon request.
+          </p>
         </div>
       </div>
     </section>
@@ -1944,6 +1998,7 @@
         heroSummary: "Ing\u00e9nieur syst\u00e8mes avec de l'exp\u00e9rience en infrastructure TI, administration infonuagique, virtualisation, cybers\u00e9curit\u00e9, outils DevOps et soutien aux entreprises. Je travaille avec Windows Server, VMware, Active Directory, Linux, Microsoft 365, les plateformes infonuagiques et des projets de produits pratiques.",
         mainActions: "Actions principales",
         contactMe: "Me contacter",
+        cvPrivacyNote: "Pour des raisons de confidentialit\u00e9 et de s\u00e9curit\u00e9, les CV publics incluent uniquement le contact par courriel. Le num\u00e9ro de t\u00e9l\u00e9phone peut \u00eatre fourni sur demande.",
         portraitAlt: "Portrait en noir et blanc de Franklyn Jose Vasquez Marin",
         scrollDown: "D\u00e9filer vers le bas",
         aboutKicker: "01 / \u00c0 propos",
@@ -2089,6 +2144,7 @@
         heroSummary: "Ingeniero de sistemas con experiencia en infraestructura TI, administraci\u00f3n en la nube, virtualizaci\u00f3n, ciberseguridad, herramientas DevOps y soporte empresarial. Trabajo con Windows Server, VMware, Active Directory, Linux, Microsoft 365, plataformas en la nube y proyectos pr\u00e1cticos de productos.",
         mainActions: "Acciones principales",
         contactMe: "Cont\u00e1ctame",
+        cvPrivacyNote: "Por privacidad y seguridad, los CV p\u00fablicos incluyen solo contacto por correo electr\u00f3nico. El tel\u00e9fono puede proporcionarse bajo solicitud.",
         portraitAlt: "Retrato en blanco y negro de Franklyn Jose Vasquez Marin",
         scrollDown: "Despl\u00e1zate hacia abajo",
         aboutKicker: "01 / Sobre m\u00ed",
