@@ -1,13 +1,18 @@
 ﻿SysSign Inspector Pro v2.0 - Portable (win-x64, self-contained)
-Generated: 2026-06-13 07:36:01
+Digitally signed with Microsoft Trusted Signing (Azure).
+Signer: Franklyn Vasquez
+Generated: 2026-06-14 13:08:08
 
 FILE:   SysSignInspectorPro-v2.0-Portable-win-x64.zip
-SIZE:   57333188 bytes
-SHA256: 044E6B2D9D3C4D51C96C11F01CA8525A0637C74DEAA31CF6304300904C824549
+SIZE:   57342880 bytes
+SHA256: EDB907110F2FF63CB7006E9470860933E22ACF874CAB53EC6FEABD0032BC7682
 
-INNER:  SysSignInspectorPro.exe
-SIZE:   62947162 bytes
-SHA256: BBC55469FD9DEBBB4CD32846705F84962EF016B7B9B77284B1683032FF64D441
+INNER (signed):  SysSignInspectorPro.exe
+SIZE:   62962816 bytes
+SHA256: 9D9AA347121E56569033EA25891906AFDB19469254290898DEBC1DF71E669A63
 
-Verify (PowerShell):
+Verify the download (PowerShell):
   Get-FileHash .\SysSignInspectorPro-v2.0-Portable-win-x64.zip -Algorithm SHA256
+
+Verify the signature (after unzip):
+  signtool verify /pa /v .\SysSignInspectorPro.exe
