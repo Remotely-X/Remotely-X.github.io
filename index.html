@@ -481,6 +481,12 @@
       font-weight: 650;
     }
 
+    .project-actions {
+      display: grid;
+      gap: 10px;
+      justify-items: end;
+    }
+
     .skills-board {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1083,6 +1089,10 @@
         text-align: left;
       }
 
+      .project-actions {
+        justify-items: start;
+      }
+
       .skills-board {
         grid-template-columns: 1fr;
       }
@@ -1277,7 +1287,7 @@
               <span data-i18n="yearsInfrastructure">Years in IT infrastructure</span>
             </div>
             <div class="metric">
-              <strong>5</strong>
+              <strong>6</strong>
               <span data-i18n="personalProjects">Recent Personal Projects</span>
             </div>
           </div>
@@ -1365,10 +1375,23 @@
               <span data-i18n="projectSysSign">Portable Windows security tool that helps identify safe, suspicious, or untrusted processes by checking digital signatures, location, reputation, and hash values, with clear reports for system security analysis.</span>
               <span class="hash-line"><span data-i18n="hashLabel">SHA-256 validation:</span> <code>EDB907110F2FF63CB7006E9470860933E22ACF874CAB53EC6FEABD0032BC7682</code></span>
             </p>
-            <a class="project-link" href="app/portable/SysSignInspectorPro-v2.0-Portable-win-x64.zip" download><span data-i18n="downloadPortable">Download portable ZIP</span> &#8599;</a>
+            <a class="project-link" href="app/SysSignInspectorPro/Portable/SysSignInspectorPro-v2.0-Portable-win-x64.zip" download><span data-i18n="downloadPortable">Download portable ZIP</span> &#8599;</a>
           </article>
           <article class="project-row">
             <span class="row-number">03</span>
+            <h3>ClearZonePC</h3>
+            <p>
+              <span data-i18n="projectClearZone">Desktop Windows utility focused on PC cleanup and system optimization. It scans for junk files, temporary files, recycle bin data, system logs, and browser cache, while also providing tools for startup management, uninstall management, recovery options, and safe cleaning controls.</span>
+              <span class="hash-line"><span data-i18n="portableHashLabel">Portable SHA-256:</span> <code>51F2A1951AD0DBC42CD1FC3652DE097B08FEF0B83819B886BCD2D98F185A0E3A</code></span>
+              <span class="hash-line"><span data-i18n="installerHashLabel">Installer SHA-256:</span> <code>89CE795ADA20E3D197D951F022B591E87F197E5727C8AE998267995D69BE6BE3</code></span>
+            </p>
+            <div class="project-actions">
+              <a class="project-link" href="app/ClearZonePC/Portable/ClearZonePC_Portable.zip" download><span data-i18n="downloadPortable">Download portable ZIP</span> &#8599;</a>
+              <a class="project-link" href="app/ClearZonePC/ClearZonePC_Installer/ClearZonePC_Setup.exe" download><span data-i18n="downloadInstaller">Download installer</span> &#8599;</a>
+            </div>
+          </article>
+          <article class="project-row">
+            <span class="row-number">04</span>
             <h3>FlashCards: Learn English</h3>
             <p data-i18n="projectFlashcards">
               Published Android language-learning application with flashcards, pronunciation and listening practice,
@@ -1377,7 +1400,7 @@
             <a class="project-link" href="https://play.google.com/store/apps/details?id=com.flashcards.puffin" target="_blank" rel="noopener noreferrer">Google Play &#8599;</a>
           </article>
           <article class="project-row">
-            <span class="row-number">04</span>
+            <span class="row-number">05</span>
             <h3>Daily Agenda</h3>
             <p data-i18n="projectAgenda">
               Android application focused on daily planning, agenda organization, reminders, and task management.
@@ -1385,7 +1408,7 @@
             <a class="project-link" href="https://play.google.com/store/apps/details?id=com.dailyagenda.dailyagenda" target="_blank" rel="noopener noreferrer">Google Play &#8599;</a>
           </article>
           <article class="project-row">
-            <span class="row-number">05</span>
+            <span class="row-number">06</span>
             <h3>Key Vault</h3>
             <p data-i18n="projectKeyVault">
               Android application focused on storing and organizing sensitive user information.
@@ -2054,7 +2077,11 @@
         openLink: "Ouvrir",
         projectSysSign: "Outil de s\u00e9curit\u00e9 Windows portable qui aide \u00e0 identifier les processus s\u00fbrs, suspects ou non fiables en v\u00e9rifiant les signatures num\u00e9riques, l'emplacement, la r\u00e9putation et les valeurs de hachage, avec des rapports clairs pour l'analyse de s\u00e9curit\u00e9 du syst\u00e8me.",
         hashLabel: "Validation SHA-256 :",
+        portableHashLabel: "SHA-256 portable :",
+        installerHashLabel: "SHA-256 installateur :",
         downloadPortable: "T\u00e9l\u00e9charger le ZIP portable",
+        downloadInstaller: "T\u00e9l\u00e9charger l'installateur",
+        projectClearZone: "Utilitaire de bureau Windows ax\u00e9 sur le nettoyage du PC et l'optimisation du syst\u00e8me. Il analyse les fichiers inutiles, les fichiers temporaires, les donn\u00e9es de la corbeille, les journaux syst\u00e8me et le cache du navigateur, tout en offrant des outils de gestion du d\u00e9marrage, de gestion de la d\u00e9sinstallation, d'options de r\u00e9cup\u00e9ration et de contr\u00f4les de nettoyage s\u00e9curis\u00e9s.",
         projectFlashcards: "Application Android publi\u00e9e pour l'apprentissage des langues avec cartes m\u00e9moire, exercices de prononciation et d'\u00e9coute, concepts de pratique orale, authentification des utilisateurs et \u00e9crans d'\u00e9tude structur\u00e9s.",
         projectAgenda: "Application Android ax\u00e9e sur la planification quotidienne, l'organisation de l'agenda, les rappels et la gestion des t\u00e2ches.",
         projectKeyVault: "Application Android ax\u00e9e sur le stockage et l'organisation s\u00e9curis\u00e9s des renseignements sensibles des utilisateurs.",
@@ -2203,7 +2230,11 @@
         openLink: "Abrir",
         projectSysSign: "Herramienta portable de seguridad para Windows que ayuda a identificar procesos seguros, sospechosos o no confiables verificando sus firmas digitales, ubicaci\u00f3n, reputaci\u00f3n y valores hash, con reportes claros para an\u00e1lisis de seguridad del sistema.",
         hashLabel: "Validaci\u00f3n SHA-256:",
+        portableHashLabel: "SHA-256 portable:",
+        installerHashLabel: "SHA-256 instalador:",
         downloadPortable: "Descargar ZIP portable",
+        downloadInstaller: "Descargar instalador",
+        projectClearZone: "Utilidad de escritorio para Windows enfocada en la limpieza del PC y la optimizaci\u00f3n del sistema. Escanea archivos basura, archivos temporales, datos de la papelera de reciclaje, registros del sistema y cach\u00e9 del navegador, y tambi\u00e9n ofrece herramientas para gestionar el inicio, administrar desinstalaciones, opciones de recuperaci\u00f3n y controles de limpieza segura.",
         projectFlashcards: "Aplicaci\u00f3n Android publicada para aprender idiomas con tarjetas de estudio, pr\u00e1ctica de pronunciaci\u00f3n y comprensi\u00f3n auditiva, conceptos de pr\u00e1ctica oral, autenticaci\u00f3n de usuarios y pantallas de estudio estructuradas.",
         projectAgenda: "Aplicaci\u00f3n Android centrada en planificaci\u00f3n diaria, organizaci\u00f3n de agenda, recordatorios y gesti\u00f3n de tareas.",
         projectKeyVault: "Aplicaci\u00f3n Android centrada en almacenar y organizar informaci\u00f3n confidencial de los usuarios.",
