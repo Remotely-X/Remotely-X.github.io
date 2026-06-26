@@ -1,18 +1,21 @@
-﻿SysSign Inspector Pro v2.0 - Release files (single-instance fix)
+﻿SysSign Inspector Pro v2.0 - Release files
 Digitally signed with Microsoft Trusted Signing (Azure). Signer: Franklyn Vasquez
-Generated: 2026-06-26 16:06:46
+Generated: 2026-06-26 19:48:28
+Includes: scan progress bar + cancel, dashboard auto-refresh, multi-select,
+blocklist terminate + disable-startup, Startup Manager, Real-time Protection,
+system tray, single-instance, start-with-Windows.
 
 [INSTALLER]  SysSignInspectorPro-v2.0-Setup.exe
-  Size:   69151136 bytes
-  SHA256: 1219FC34AABC5DB9FF59212B399B4253000DC0309BD40C713818AA81D4BBAEBA
+  Size:   69163744 bytes
+  SHA256: E5DBC75E3D6304329B79C3ADBB900CB2034F3236CDE4C8D3212CC6D61F3B2B50
 
 [PORTABLE ZIP]  SysSignInspectorPro-v2.0-Portable-win-x64.zip
-  Size:   68777504 bytes
-  SHA256: 4689FFF328301A839A38CE7C67EA8E650E53492A45E59E84AF6A392C80CCEAAA
+  Size:   68783990 bytes
+  SHA256: 2DD7AE4425E7A40A6BBE83BFBB30D328027411FBAB40235893E6736DAAE1646C
 
 [PORTABLE EXE]  SysSignInspectorPro.exe  (inside the ZIP, signed)
-  Size:   74507416 bytes
-  SHA256: 78F1B70CEAF744436E89671485B79F0E10C04A6D52669D0566E1820029E40DBD
+  Size:   74515360 bytes
+  SHA256: C380893E3E15B8FD3F84215DC576DC77EAC5359FAF7A5AD0CFF4D9C226A54999
 
 Verify:
   Get-FileHash .\<file> -Algorithm SHA256
